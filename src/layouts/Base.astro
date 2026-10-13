@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import { languages, type Lang, type PageKey } from '../i18n/ui';
+import { assetPath, pagePath, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+  title: string;
+  description: string;
+}
+
+const { lang, page, title, description } = Astro.props;
+const t = useTranslations(lang);
+const fullTitle = `${title} · ${site.name}`;
+
+// Absolues si `site` est défini dans astro.config.mjs, relatives sinon.
+const url = (l: Lang) => (Astro.site ? new URL(pagePath(page, l), Astro.site).href : pagePath(page, l));
+---
+
+<!doctype html>
+<html lang={lang} data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={assetPath('/favicon.svg')} />
+    {Astro.site && <link rel="canonical" href={url(lang)} />}
+    {Object.keys(languages).map((l) => <link rel="alternate" hreflang={l} href={url(l as Lang)} />)}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
+    {Astro.site && <meta property="og:url" content={url(lang)} />}
+    <!-- Applique le thème choisi avant le premier rendu pour éviter un flash. -->
+    <script is:inline>
+      try {
+        if (localStorage.getItem('theme') === 'light') {
+          document.documentElement.dataset.theme = 'light';
+        }
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">{t('skip')}</a>
+    <Header lang={lang} page={page} />
+    <main id="contenu" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

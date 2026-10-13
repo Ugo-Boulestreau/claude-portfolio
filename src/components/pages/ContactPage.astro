@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/site';
+import type { Lang } from '../../i18n/ui';
+import { assetPath, useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const handle = (url: string) => new URL(url).pathname.replace(/^\/(in\/)?|\/$/g, '');
+---
+
+<Base lang={lang} page="contact" title={t('contact.title')} description={t('contact.description')}>
+  <div class="container page-header">
+    <h1>{t('contact.title')}</h1>
+    <p class="lead">{t('contact.intro')}</p>
+  </div>
+  <div class="container section">
+    <dl class="contacts">
+      <div>
+        <dt>{t('contact.email')}</dt>
+        <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+      </div>
+      <div>
+        <dt>GitHub</dt>
+        <dd><a href={site.github}>{handle(site.github)}</a></dd>
+      </div>
+      <div>
+        <dt>LinkedIn</dt>
+        <dd><a href={site.linkedin}>{handle(site.linkedin)}</a></dd>
+      </div>
+      {
+        site.cv && (
+          <div>
+            <dt>{t('contact.cv')}</dt>
+            <dd>
+              <a href={assetPath(site.cv)} download>
+                {t('contact.cv.download')}
+              </a>
+            </dd>
+          </div>
+        )
+      }
+    </dl>
+  </div>
+</Base>
+
+<style>
+  .contacts {
+    display: grid;
+    gap: var(--space-2);
+    max-width: 36rem;
+    margin: 0;
+  }
+
+  .contacts div {
+    padding: var(--space-2) var(--space-3);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  dt {
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+</style>

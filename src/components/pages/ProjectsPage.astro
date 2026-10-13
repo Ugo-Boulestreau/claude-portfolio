@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../ProjectCard.astro';
+import { getProjects } from '../../i18n/projects';
+import type { Lang } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const projects = await getProjects(lang);
+---
+
+<Base lang={lang} page="projects" title={t('projects.title')} description={t('projects.description')}>
+  <div class="container page-header">
+    <h1>{t('projects.title')}</h1>
+    <p class="lead">{t('projects.intro')}</p>
+  </div>
+  <div class="container section">
+    <ul class="grid" role="list">
+      {
+        projects.map((project) => (
+          <li>
+            <ProjectCard project={project} lang={lang} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

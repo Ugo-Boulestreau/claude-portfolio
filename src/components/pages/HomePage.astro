@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../ProjectCard.astro';
+import { site } from '../../data/site';
+import { getProjects } from '../../i18n/projects';
+import type { Lang } from '../../i18n/ui';
+import { pagePath, useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const featured = (await getProjects(lang)).filter((project) => project.data.featured);
+---
+
+<Base lang={lang} page="home" title={t('home.title')} description={t('home.description')}>
+  <section class="container hero">
+    <p class="status">{t('home.status')}</p>
+    <h1>{site.name}</h1>
+    <p class="role">{t('home.role')}</p>
+    <p class="lead">{t('home.intro')}</p>
+    <p class="actions">
+      <a class="button button--primary" href={pagePath('projects', lang)}>{t('home.cta.projects')}</a>
+      <a class="button" href={pagePath('contact', lang)}>{t('home.cta.contact')}</a>
+    </p>
+  </section>
+
+  {
+    featured.length > 0 && (
+      <section class="container section" aria-labelledby="featured">
+        <h2 id="featured">{t('home.featured')}</h2>
+        <ul class="grid" role="list">
+          {featured.map((project) => (
+            <li>
+              <ProjectCard project={project} lang={lang} heading="h3" />
+            </li>
+          ))}
+        </ul>
+        <p class="more">
+          <a href={pagePath('projects', lang)}>{t('home.allProjects')} →</a>
+        </p>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .hero {
+    padding-block: var(--space-5) var(--space-4);
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 0.2rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.875rem;
+  }
+
+  .status::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #3fb950;
+  }
+
+  h1 {
+    margin-bottom: var(--space-1);
+  }
+
+  .role {
+    color: var(--accent);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .more {
+    margin-top: var(--space-3);
+    font-weight: 600;
+  }
+</style>

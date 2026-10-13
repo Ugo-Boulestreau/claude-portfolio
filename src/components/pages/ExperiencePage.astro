@@ -1,0 +1,106 @@
+---
+import Base from '../../layouts/Base.astro';
+import { skills, timeline } from '../../data/experience';
+import type { Lang } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} page="experience" title={t('experience.title')} description={t('experience.description')}>
+  <div class="container page-header">
+    <h1>{t('experience.title')}</h1>
+    <p class="lead">{t('experience.intro')}</p>
+  </div>
+
+  <section class="container section" aria-labelledby="timeline">
+    <h2 id="timeline">{t('experience.timeline')}</h2>
+    <ol class="timeline" role="list">
+      {
+        timeline[lang].map((entry) => (
+          <li>
+            <p class="period">{entry.period}</p>
+            <h3>{entry.title}</h3>
+            <p class="place">{entry.place}</p>
+            <p>{entry.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="container section" aria-labelledby="skills">
+    <h2 id="skills">{t('experience.skills')}</h2>
+    <div class="skills">
+      {
+        skills[lang].map((group) => (
+          <div>
+            <h3>{group.label}</h3>
+            <ul class="tags" role="list">
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .timeline {
+    max-width: 44rem;
+    border-inline-start: 2px solid var(--border);
+  }
+
+  .timeline li {
+    position: relative;
+    padding: 0 0 var(--space-3) var(--space-3);
+  }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    top: 0.45rem;
+    left: -0.4375rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .timeline h3 {
+    margin-bottom: 0;
+  }
+
+  .timeline p {
+    margin: 0;
+  }
+
+  .period {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  .place {
+    color: var(--muted);
+    margin-bottom: var(--space-1) !important;
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: var(--space-3);
+  }
+
+  .skills h3 {
+    margin-bottom: var(--space-1);
+  }
+</style>

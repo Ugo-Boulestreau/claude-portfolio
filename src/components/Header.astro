@@ -1,0 +1,110 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { site } from '../data/site';
+import { routes, type Lang, type PageKey } from '../i18n/ui';
+import { otherLang, pagePath, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+
+const { lang, page } = Astro.props;
+const t = useTranslations(lang);
+const other = otherLang(lang);
+const pages = Object.keys(routes) as PageKey[];
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href={pagePath('home', lang)}>{site.name}</a>
+    <nav aria-label={t('nav.label')}>
+      <ul role="list">
+        {
+          pages.map((p) => (
+            <li>
+              <a href={pagePath(p, lang)} aria-current={p === page ? 'page' : undefined}>
+                {t(`nav.${p}`)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="tools">
+      <a class="lang" href={pagePath(page, other)} hreflang={other} lang={other} aria-label={t('lang.switch')}>
+        {other.toUpperCase()}
+      </a>
+      <ThemeToggle lang={lang} />
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-3);
+    padding-block: var(--space-2);
+  }
+
+  .brand {
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  nav {
+    margin-inline-start: auto;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+  }
+
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--text);
+  }
+
+  nav a[aria-current='page'] {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+  }
+
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .lang {
+    display: grid;
+    place-items: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .lang:hover {
+    border-color: var(--accent);
+  }
+</style>

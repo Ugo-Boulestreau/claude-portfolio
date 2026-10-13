@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  lang: Lang;
+  /** Niveau du titre de la carte, selon la page qui l'affiche. */
+  heading?: 'h2' | 'h3';
+}
+
+const { project, lang, heading: Heading = 'h2' } = Astro.props;
+const { title, description, tech, github, demo, cover, coverAlt } = project.data;
+const t = useTranslations(lang);
+---
+
+<article class="card">
+  <Image src={cover} alt={coverAlt} width={640} height={360} loading="lazy" />
+  <div class="body">
+    <Heading class="title">{title}</Heading>
+    <p>{description}</p>
+    <ul class="tags" role="list" aria-label={t('projects.tech')}>
+      {tech.map((name) => <li>{name}</li>)}
+    </ul>
+    <p class="links">
+      <a href={github}>{t('projects.github')}<span class="visually-hidden"> – {title}</span></a>
+      {
+        demo && (
+          <a href={demo}>
+            {t('projects.demo')}
+            <span class="visually-hidden"> – {title}</span>
+          </a>
+        )
+      }
+    </p>
+  </div>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3);
+  }
+
+  .title {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
+    margin-top: auto;
+    font-weight: 600;
+  }
+</style>
