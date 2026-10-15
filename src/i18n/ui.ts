@@ -57,7 +57,7 @@ export const ui = {
     'experience.projects': 'Projets',
     'experience.skillsUsed': 'Compétences mobilisées',
     'experience.skills': 'Compétences',
-    'experience.skillsIntro': 'Chaque compétence renvoie à l’étape du parcours où je l’ai pratiquée.',
+    'experience.skillsIntro': 'Chaque compétence renvoie à l’étape la plus récente où je l’ai pratiquée.',
     'experience.usedIn': 'Pratiqué en :',
 
     'contact.title': 'Contact',
@@ -106,7 +106,7 @@ export const ui = {
     'experience.projects': 'Projects',
     'experience.skillsUsed': 'Skills used',
     'experience.skills': 'Skills',
-    'experience.skillsIntro': 'Each skill links to the step of my path where I practised it.',
+    'experience.skillsIntro': 'Each skill links to the most recent step where I practised it.',
     'experience.usedIn': 'Used in:',
 
     'contact.title': 'Contact',

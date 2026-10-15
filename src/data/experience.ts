@@ -332,33 +332,32 @@ export function placementLabel(placement: Placement, lang: Lang): string {
 
 export const skillAnchor = (id: SkillId) => `competence-${id}`;
 
-type Mention = { href: string; label: string };
+/** Compétences regroupées, dans l'ordre de déclaration. */
+export function skillGroupList(lang: Lang) {
+  return (Object.keys(skillGroups) as SkillGroupId[]).map((group) => ({
+    label: skillGroups[group][lang],
+    skills: (Object.keys(skills) as SkillId[]).filter((id) => skills[id].group === group),
+  }));
+}
+
+type Usage = { href: string; label: string };
 
 /**
- * Compétences regroupées, chacune avec la liste des étapes qui la citent.
- * Calculé au build : il suffit d'ajouter un identifiant à une étape pour
- * que la mention apparaisse dans la section Compétences.
+ * Étapes où une compétence a été pratiquée, de la plus récente à la plus ancienne
+ * (l'ordre des tableaux `afterEpitech` puis `epitechYears`). Calculé au build :
+ * il suffit de citer un identifiant dans une étape pour qu'il apparaisse ici.
  */
-export function skillsWithMentions(lang: Lang) {
-  const mentions = new Map<SkillId, Mention[]>();
-  const add = (id: SkillId, mention: Mention) => mentions.set(id, [...(mentions.get(id) ?? []), mention]);
-
+export function skillUsage(id: SkillId, lang: Lang): Usage[] {
+  const usage: Usage[] = [];
   for (const step of [...afterEpitech, finalProject, ...epitechYears]) {
-    for (const id of step.skills) {
-      add(id, { href: `#${step.id}`, label: step.short[lang] });
+    if (step.skills.includes(id)) {
+      usage.push({ href: `#${step.id}`, label: step.short[lang] });
     }
     for (const placement of step.placements ?? []) {
-      const label = `${placementKinds[placement.kind].at[lang]} ${placement.company}`;
-      for (const id of placement.skills) {
-        add(id, { href: `#${placement.id}`, label });
+      if (placement.skills.includes(id)) {
+        usage.push({ href: `#${placement.id}`, label: `${placementKinds[placement.kind].at[lang]} ${placement.company}` });
       }
     }
   }
-
-  return (Object.keys(skillGroups) as SkillGroupId[]).map((group) => ({
-    label: skillGroups[group][lang],
-    items: (Object.keys(skills) as SkillId[])
-      .filter((id) => skills[id].group === group)
-      .map((id) => ({ id, label: skillLabel(id, lang), mentions: mentions.get(id) ?? [] })),
-  }));
+  return usage;
 }

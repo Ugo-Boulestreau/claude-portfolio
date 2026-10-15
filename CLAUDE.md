@@ -50,7 +50,7 @@ les variables CSS, définies pour les deux thèmes.
 src/
   pages/              fichiers de route, simples enveloppes (fr à la racine, en/ pour l'anglais)
   components/pages/   contenu réel de chaque page, paramétré par `lang`
-  components/         Header, Footer, ThemeToggle, ProjectCard
+  components/         Header, Footer, ThemeToggle, ProjectCard, ExperienceStep, SkillTags
   layouts/Base.astro  <head>, en-tête, pied de page
   i18n/               dictionnaires, routes, utilitaires
   data/site.ts        nom, e-mail, liens, CV
@@ -74,8 +74,11 @@ Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
 - `skills` déclare chaque compétence une fois (identifiant + groupe).
 - Les étapes (`afterEpitech`, `finalProject`, `epitechYears`, du plus récent au plus ancien) et leurs
   `placements` (stage ou alternance, champ `kind`) citent les compétences par identifiant.
-- Les mentions « Pratiqué en » de la section Compétences sont calculées par `skillsWithMentions()` :
-  ne jamais les écrire à la main. Chaque `id` d'étape ou de placement sert d'ancre et doit être unique.
+- La section Compétences n'affiche que des pastilles (`SkillTags` avec `linkTo="usage"`). Chacune
+  renvoie vers l'étape la plus récente qui la cite, calculée par `skillUsage()` ; la liste complète
+  est dans l'infobulle. Ne jamais écrire ces liens à la main.
+- Dans les étapes, les pastilles (`linkTo="skill"`, défaut) renvoient vers la section Compétences.
+- Chaque `id` d'étape ou de placement sert d'ancre et doit être unique.
 - Ne rattacher une compétence à une étape que si l'utilisateur l'a confirmé.
 
 ## Commandes

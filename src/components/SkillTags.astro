@@ -1,23 +1,52 @@
 ---
-import { skillAnchor, skillLabel, type SkillId } from '../data/experience';
+import { skillAnchor, skillLabel, skillUsage, type SkillId } from '../data/experience';
 import type { Lang } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
 
 interface Props {
   skills: SkillId[];
   lang: Lang;
+  /**
+   * `skill` : l'étiquette renvoie vers la compétence dans la section Compétences.
+   * `usage` : l'étiquette EST la compétence de cette section (elle porte l'ancre)
+   *           et renvoie vers l'étape la plus récente où elle a été pratiquée.
+   */
+  linkTo?: 'skill' | 'usage';
+  /** Nom de la liste pour les lecteurs d'écran. */
+  label?: string;
 }
 
-const { skills, lang } = Astro.props;
+const { skills, lang, linkTo = 'skill' } = Astro.props;
 const t = useTranslations(lang);
+const label = Astro.props.label ?? t('experience.skillsUsed');
+
+const tags = skills.map((id) => {
+  if (linkTo === 'skill') {
+    return { id, anchor: undefined, href: `#${skillAnchor(id)}`, title: undefined };
+  }
+  const usage = skillUsage(id, lang);
+  return {
+    id,
+    anchor: skillAnchor(id),
+    href: usage[0]?.href,
+    // Toutes les étapes, au survol : le lien ne mène qu'à la plus récente.
+    title: usage.length > 0 ? `${t('experience.usedIn')} ${usage.map((u) => u.label).join(' · ')}` : undefined,
+  };
+});
 ---
 
 {
-  skills.length > 0 && (
-    <ul class="tags" role="list" aria-label={t('experience.skillsUsed')}>
-      {skills.map((id) => (
-        <li>
-          <a href={`#${skillAnchor(id)}`}>{skillLabel(id, lang)}</a>
+  tags.length > 0 && (
+    <ul class="tags" role="list" aria-label={label}>
+      {tags.map((tag) => (
+        <li id={tag.anchor}>
+          {tag.href ? (
+            <a href={tag.href} title={tag.title}>
+              {skillLabel(tag.id, lang)}
+            </a>
+          ) : (
+            <span>{skillLabel(tag.id, lang)}</span>
+          )}
         </li>
       ))}
     </ul>
@@ -25,12 +54,30 @@ const t = useTranslations(lang);
 }
 
 <style>
+  li {
+    scroll-margin-top: var(--space-3);
+  }
+
+  /* Le lien couvre toute la pastille, pas seulement le texte. */
+  .tags li:has(a) {
+    padding: 0;
+  }
+
   a {
+    display: block;
+    padding: 0.1rem 0.6rem;
+    border-radius: inherit;
     color: inherit;
     text-decoration: none;
   }
 
-  a:hover {
-    color: var(--accent);
+  .tags li:has(a):hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  li:target {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 </style>

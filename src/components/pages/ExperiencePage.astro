@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ExperienceStep from '../ExperienceStep.astro';
-import { afterEpitech, epitechYears, finalProject, skillAnchor, skillsWithMentions } from '../../data/experience';
+import SkillTags from '../SkillTags.astro';
+import { afterEpitech, epitechYears, finalProject, skillGroupList } from '../../data/experience';
 import type { Lang } from '../../i18n/ui';
 import { useTranslations } from '../../i18n/utils';
 
@@ -11,7 +12,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const skillGroups = skillsWithMentions(lang);
+const skillGroups = skillGroupList(lang);
 ---
 
 <Base lang={lang} page="experience" title={t('experience.title')} description={t('experience.description')}>
@@ -57,24 +58,7 @@ const skillGroups = skillsWithMentions(lang);
         skillGroups.map((group) => (
           <div>
             <h3>{group.label}</h3>
-            <ul role="list">
-              {group.items.map((skill) => (
-                <li id={skillAnchor(skill.id)}>
-                  <span class="skill">{skill.label}</span>
-                  {skill.mentions.length > 0 && (
-                    <span class="mentions">
-                      <span class="visually-hidden">{t('experience.usedIn')} </span>
-                      {skill.mentions.map((mention, i) => (
-                        <>
-                          {i > 0 && ' · '}
-                          <a href={mention.href}>{mention.label}</a>
-                        </>
-                      ))}
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <SkillTags skills={group.skills} lang={lang} linkTo="usage" label={group.label} />
           </div>
         ))
       }
@@ -131,25 +115,4 @@ const skillGroups = skillsWithMentions(lang);
     margin-bottom: var(--space-1);
   }
 
-  .skills li {
-    display: flex;
-    flex-direction: column;
-    padding-block: 0.2rem;
-    scroll-margin-top: var(--space-3);
-  }
-
-  .skills li:target {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-
-  .skill {
-    font-weight: 600;
-  }
-
-  .mentions {
-    color: var(--muted);
-    font-size: 0.875rem;
-  }
 </style>
