@@ -32,6 +32,10 @@ const handle = (url: string) => new URL(url).pathname.replace(/^\/(in\/)?|\/$/g,
         <dt>LinkedIn</dt>
         <dd><a href={site.linkedin}>{handle(site.linkedin)}</a></dd>
       </div>
+            <div>
+        <dt>{t('contact.tel')}</dt>
+        <dd>{site.tel}</dd>
+      </div>
       {
         site.cv && (
           <div>

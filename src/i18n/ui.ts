@@ -61,6 +61,7 @@ export const ui = {
     'contact.email': 'E-mail',
     'contact.cv': 'CV',
     'contact.cv.download': 'Télécharger mon CV (PDF)',
+    'contact.tel': 'Téléphone',
   },
   en: {
     'skip': 'Skip to content',
@@ -103,6 +104,7 @@ export const ui = {
     'contact.email': 'Email',
     'contact.cv': 'Résumé',
     'contact.cv.download': 'Download my résumé (PDF)',
+    'contact.tel': 'Phone',
   },
 } as const;
 

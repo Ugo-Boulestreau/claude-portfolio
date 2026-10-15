@@ -59,15 +59,21 @@ export const timeline: Record<Lang, Entry[]> = {
 // TODO : liste d'exemple, à ajuster.
 export const skills: Record<Lang, SkillGroup[]> = {
   fr: [
-    { label: 'Front-end', items: ['HTML', 'CSS', 'JavaScript', 'TypeScript'] },
-    { label: 'Back-end', items: ['Node.js', 'SQL'] },
+    { label: 'Programmation', items: ['JavaScript', 'TypeScript', 'C', 'C++', 'Python'] },
+    { label: 'Front-end', items: ['Angular', 'PrimeFaces', 'Plotly'] },
+    { label: 'Back-end', items: ['Node.js', 'Spring Boot', '.NET', 'Entity Framework', 'NestJS'] },
+    { label: 'Base de données', items: ['PostgreSQL', 'SQL Server'] },
+    { label: 'DevOps - CI/CD', items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI', 'Azure DevOps'] },
     { label: 'Outils', items: ['Git', 'Linux'] },
-    { label: 'Langues', items: ['Français', 'Anglais', 'Japonais (niveau à préciser)'] },
+    { label: 'Langues', items: ['Français', 'Anglais', 'Japonais (débutant)'] },
   ],
   en: [
-    { label: 'Front-end', items: ['HTML', 'CSS', 'JavaScript', 'TypeScript'] },
-    { label: 'Back-end', items: ['Node.js', 'SQL'] },
+    { label: 'Programming', items: ['JavaScript', 'TypeScript', 'C', 'C++', 'Python'] },
+    { label: 'Front-end', items: ['Angular', 'PrimeFaces', 'Plotly'] },
+    { label: 'Back-end', items: ['Node.js', 'Spring Boot', '.NET', 'Entity Framework', 'NestJS'] },
+    { label: 'Database', items: ['PostgreSQL', 'SQL Server'] },
+    { label: 'DevOps - CI/CD', items: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI', 'Azure DevOps'] },
     { label: 'Tools', items: ['Git', 'Linux'] },
-    { label: 'Languages', items: ['French', 'English', 'Japanese (level to specify)'] },
+    { label: 'Languages', items: ['French', 'English', 'Japanese (beginner)'] },
   ],
 };
