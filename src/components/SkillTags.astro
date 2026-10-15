@@ -1,0 +1,36 @@
+---
+import { skillAnchor, skillLabel, type SkillId } from '../data/experience';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  skills: SkillId[];
+  lang: Lang;
+}
+
+const { skills, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+{
+  skills.length > 0 && (
+    <ul class="tags" role="list" aria-label={t('experience.skillsUsed')}>
+      {skills.map((id) => (
+        <li>
+          <a href={`#${skillAnchor(id)}`}>{skillLabel(id, lang)}</a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+</style>

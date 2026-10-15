@@ -49,10 +49,16 @@ export const ui = {
     'projects.demo': 'Voir la démo',
 
     'experience.title': 'Parcours',
-    'experience.description': 'Formation, expériences et compétences.',
-    'experience.intro': 'Ma formation, mes expériences et les outils avec lesquels je travaille.',
-    'experience.timeline': 'Chronologie',
+    'experience.description': 'Formation Epitech année par année, stages et compétences.',
+    'experience.intro':
+      'Mon parcours à Epitech année par année, les stages réalisés et les compétences qui en découlent.',
+    'experience.after': 'Depuis Epitech',
+    'experience.epitech': 'Epitech, 2020 – 2025',
+    'experience.projects': 'Projets',
+    'experience.skillsUsed': 'Compétences mobilisées',
     'experience.skills': 'Compétences',
+    'experience.skillsIntro': 'Chaque compétence renvoie à l’étape du parcours où je l’ai pratiquée.',
+    'experience.usedIn': 'Pratiqué en :',
 
     'contact.title': 'Contact',
     'contact.description': 'Me contacter par e-mail, GitHub ou LinkedIn.',
@@ -93,10 +99,15 @@ export const ui = {
     'projects.demo': 'View demo',
 
     'experience.title': 'Experience',
-    'experience.description': 'Education, experience and skills.',
-    'experience.intro': 'My education, my experience and the tools I work with.',
-    'experience.timeline': 'Timeline',
+    'experience.description': 'Epitech education year by year, internships and skills.',
+    'experience.intro': 'My Epitech education year by year, the internships I did and the skills that came out of them.',
+    'experience.after': 'Since Epitech',
+    'experience.epitech': 'Epitech, 2020 – 2025',
+    'experience.projects': 'Projects',
+    'experience.skillsUsed': 'Skills used',
     'experience.skills': 'Skills',
+    'experience.skillsIntro': 'Each skill links to the step of my path where I practised it.',
+    'experience.usedIn': 'Used in:',
 
     'contact.title': 'Contact',
     'contact.description': 'Get in touch by email, GitHub or LinkedIn.',

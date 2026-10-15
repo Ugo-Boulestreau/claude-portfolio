@@ -1,0 +1,107 @@
+---
+import SkillTags from './SkillTags.astro';
+import { placementLabel, type Step } from '../data/experience';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  step: Step;
+  lang: Lang;
+}
+
+const { step, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<article id={step.id} class="step">
+  <p class="period">{step.period[lang]}</p>
+  <h3>{step.title[lang]}</h3>
+  <p class="place">{step.place[lang]}</p>
+  <p>{step.summary[lang]}</p>
+
+  {
+    step.projects && step.projects.length > 0 && (
+      <>
+        <h4>{t('experience.projects')}</h4>
+        <ul class="projects">
+          {step.projects.map((project) => (
+            <li>{project[lang]}</li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  <SkillTags skills={step.skills} lang={lang} />
+
+  {
+    step.placements?.map((placement) => (
+      <section id={placement.id} class="placement">
+        <p class="period">
+          {placementLabel(placement, lang)} · {placement.period[lang]}
+        </p>
+        <h4>{placement.company}</h4>
+        <p class="place">{placement.role[lang]}</p>
+        <ul class="missions">
+          {placement.missions.map((mission) => (
+            <li>{mission[lang]}</li>
+          ))}
+        </ul>
+        <SkillTags skills={placement.skills} lang={lang} />
+      </section>
+    ))
+  }
+</article>
+
+<style>
+  .step,
+  .placement {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    scroll-margin-top: var(--space-3);
+  }
+
+  h3,
+  h4,
+  p {
+    margin: 0;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  .period {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  .place {
+    color: var(--muted);
+  }
+
+  ul.projects,
+  ul.missions {
+    margin: 0;
+    padding-inline-start: 1.25rem;
+  }
+
+  .placement {
+    margin-top: var(--space-1);
+    padding: var(--space-2) var(--space-3);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-inline-start: 3px solid var(--accent);
+    border-radius: var(--radius);
+  }
+
+  /* Mise en évidence de l'étape atteinte via un lien de la section Compétences. */
+  .step:target > h3,
+  .placement:target {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+</style>

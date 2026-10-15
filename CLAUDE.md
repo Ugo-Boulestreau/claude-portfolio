@@ -67,6 +67,17 @@ src/
 3. Remplir le frontmatter : `title`, `description`, `tech`, `github`, `cover`, `coverAlt`,
    et en option `demo`, `featured` (affiché sur l'accueil), `order` (tri croissant).
 
+## Page Parcours
+
+Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
+
+- `skills` déclare chaque compétence une fois (identifiant + groupe).
+- Les étapes (`afterEpitech`, `finalProject`, `epitechYears`, du plus récent au plus ancien) et leurs
+  `placements` (stage ou alternance, champ `kind`) citent les compétences par identifiant.
+- Les mentions « Pratiqué en » de la section Compétences sont calculées par `skillsWithMentions()` :
+  ne jamais les écrire à la main. Chaque `id` d'étape ou de placement sert d'ancre et doit être unique.
+- Ne rattacher une compétence à une étape que si l'utilisateur l'a confirmé.
+
 ## Commandes
 
 - `npm run dev` : serveur de développement (http://localhost:4321)
@@ -75,5 +86,5 @@ src/
 
 ## État du contenu
 
-Le nom, l'e-mail, les liens, la chronologie et les trois projets sont des **exemples à remplacer**
-(marqués `TODO` ou « À remplacer »). Ne pas inventer d'informations sur le parcours : demander.
+Coordonnées, CV et parcours sont réels. Les trois projets de la page Projets sont encore des
+**exemples à remplacer** (« À remplacer »). Ne pas inventer d'informations sur le parcours : demander.

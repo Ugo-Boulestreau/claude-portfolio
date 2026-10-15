@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { skills, timeline } from '../../data/experience';
+import ExperienceStep from '../ExperienceStep.astro';
+import { afterEpitech, epitechYears, finalProject, skillAnchor, skillsWithMentions } from '../../data/experience';
 import type { Lang } from '../../i18n/ui';
 import { useTranslations } from '../../i18n/utils';
 
@@ -10,6 +11,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const skillGroups = skillsWithMentions(lang);
 ---
 
 <Base lang={lang} page="experience" title={t('experience.title')} description={t('experience.description')}>
@@ -18,16 +20,29 @@ const t = useTranslations(lang);
     <p class="lead">{t('experience.intro')}</p>
   </div>
 
-  <section class="container section" aria-labelledby="timeline">
-    <h2 id="timeline">{t('experience.timeline')}</h2>
+  <section class="container section" aria-labelledby="after">
+    <h2 id="after">{t('experience.after')}</h2>
     <ol class="timeline" role="list">
       {
-        timeline[lang].map((entry) => (
+        afterEpitech.map((step) => (
           <li>
-            <p class="period">{entry.period}</p>
-            <h3>{entry.title}</h3>
-            <p class="place">{entry.place}</p>
-            <p>{entry.description}</p>
+            <ExperienceStep step={step} lang={lang} />
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="container section" aria-labelledby="epitech">
+    <h2 id="epitech">{t('experience.epitech')}</h2>
+    <div class="featured">
+      <ExperienceStep step={finalProject} lang={lang} />
+    </div>
+    <ol class="timeline" role="list">
+      {
+        epitechYears.map((step) => (
+          <li>
+            <ExperienceStep step={step} lang={lang} />
           </li>
         ))
       }
@@ -36,14 +51,28 @@ const t = useTranslations(lang);
 
   <section class="container section" aria-labelledby="skills">
     <h2 id="skills">{t('experience.skills')}</h2>
+    <p class="hint">{t('experience.skillsIntro')}</p>
     <div class="skills">
       {
-        skills[lang].map((group) => (
+        skillGroups.map((group) => (
           <div>
             <h3>{group.label}</h3>
-            <ul class="tags" role="list">
-              {group.items.map((item) => (
-                <li>{item}</li>
+            <ul role="list">
+              {group.items.map((skill) => (
+                <li id={skillAnchor(skill.id)}>
+                  <span class="skill">{skill.label}</span>
+                  {skill.mentions.length > 0 && (
+                    <span class="mentions">
+                      <span class="visually-hidden">{t('experience.usedIn')} </span>
+                      {skill.mentions.map((mention, i) => (
+                        <>
+                          {i > 0 && ' · '}
+                          <a href={mention.href}>{mention.label}</a>
+                        </>
+                      ))}
+                    </span>
+                  )}
+                </li>
               ))}
             </ul>
           </div>
@@ -59,12 +88,16 @@ const t = useTranslations(lang);
     border-inline-start: 2px solid var(--border);
   }
 
-  .timeline li {
+  .timeline > li {
     position: relative;
-    padding: 0 0 var(--space-3) var(--space-3);
+    padding: 0 0 var(--space-4) var(--space-3);
   }
 
-  .timeline li::before {
+  .timeline > li:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline > li::before {
     content: '';
     position: absolute;
     top: 0.45rem;
@@ -75,23 +108,17 @@ const t = useTranslations(lang);
     background: var(--accent);
   }
 
-  .timeline h3 {
-    margin-bottom: 0;
+  .featured {
+    max-width: 44rem;
+    margin-bottom: var(--space-4);
+    padding: var(--space-3);
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
   }
 
-  .timeline p {
-    margin: 0;
-  }
-
-  .period {
+  .hint {
     color: var(--muted);
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-  }
-
-  .place {
-    color: var(--muted);
-    margin-bottom: var(--space-1) !important;
   }
 
   .skills {
@@ -102,5 +129,27 @@ const t = useTranslations(lang);
 
   .skills h3 {
     margin-bottom: var(--space-1);
+  }
+
+  .skills li {
+    display: flex;
+    flex-direction: column;
+    padding-block: 0.2rem;
+    scroll-margin-top: var(--space-3);
+  }
+
+  .skills li:target {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .skill {
+    font-weight: 600;
+  }
+
+  .mentions {
+    color: var(--muted);
+    font-size: 0.875rem;
   }
 </style>
