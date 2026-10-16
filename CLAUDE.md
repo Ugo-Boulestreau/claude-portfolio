@@ -37,7 +37,7 @@ les variables CSS, définies pour les deux thèmes.
   | -------- | ------------ | ----------------- |
   | Accueil  | `/`          | `/en/`            |
   | Projets  | `/projets/`  | `/en/projects/`   |
-  | Parcours | `/parcours/` | `/en/experience/` |
+  | Parcours et compétences | `/parcours/` | `/en/experience/` |
   | Contact  | `/contact/`  | `/en/contact/`    |
 
 - Textes d'interface : `src/i18n/ui.ts`, toujours dans les deux langues.
@@ -67,16 +67,16 @@ src/
 3. Remplir le frontmatter : `title`, `description`, `tech`, `github`, `cover`, `coverAlt`,
    et en option `demo`, `featured` (affiché sur l'accueil), `order` (tri croissant).
 
-## Page Parcours
+## Page Parcours et compétences
 
 Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
 
 - `skills` déclare chaque compétence une fois (identifiant + groupe).
 - Les étapes (`afterEpitech`, `finalProject`, `epitechYears`, du plus récent au plus ancien) et leurs
   `placements` (stage ou alternance, champ `kind`) citent les compétences par identifiant.
-- La section Compétences n'affiche que des pastilles (`SkillTags` avec `linkTo="usage"`). Chacune
-  renvoie vers l'étape la plus récente qui la cite, calculée par `skillUsage()` ; la liste complète
-  est dans l'infobulle. Ne jamais écrire ces liens à la main.
+- La section Compétences est en haut de la page et n’affiche que des pastilles (`SkillTags` avec `linkTo="usage"`). Chacune
+  renvoie vers l’étape la plus récente qui la cite, calculée par `skillUsage()` ; une bulle en CSS pur
+  (« Utilisé dans : … » en français, « Last used: … » en anglais) l’annonce après 1 s de survol ou au focus. Ne jamais écrire ces liens à la main.
 - Dans les étapes, les pastilles (`linkTo="skill"`, défaut) renvoient vers la section Compétences.
 - Chaque `id` d'étape ou de placement sert d'ancre et doit être unique.
 - Ne rattacher une compétence à une étape que si l'utilisateur l'a confirmé.

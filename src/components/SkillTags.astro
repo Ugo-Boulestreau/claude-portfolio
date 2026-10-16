@@ -22,16 +22,11 @@ const label = Astro.props.label ?? t('experience.skillsUsed');
 
 const tags = skills.map((id) => {
   if (linkTo === 'skill') {
-    return { id, anchor: undefined, href: `#${skillAnchor(id)}`, title: undefined };
+    return { id, anchor: undefined, href: `#${skillAnchor(id)}`, lastUsed: undefined };
   }
-  const usage = skillUsage(id, lang);
-  return {
-    id,
-    anchor: skillAnchor(id),
-    href: usage[0]?.href,
-    // Toutes les étapes, au survol : le lien ne mène qu'à la plus récente.
-    title: usage.length > 0 ? `${t('experience.usedIn')} ${usage.map((u) => u.label).join(' · ')}` : undefined,
-  };
+  // La plus récente en premier : c'est elle que vise le lien et qu'annonce la bulle.
+  const latest = skillUsage(id, lang)[0];
+  return { id, anchor: skillAnchor(id), href: latest?.href, lastUsed: latest?.label };
 });
 ---
 
@@ -41,8 +36,13 @@ const tags = skills.map((id) => {
       {tags.map((tag) => (
         <li id={tag.anchor}>
           {tag.href ? (
-            <a href={tag.href} title={tag.title}>
+            <a href={tag.href}>
               {skillLabel(tag.id, lang)}
+              {tag.lastUsed && (
+                <span class="bubble">
+                  {t('experience.lastUsed')} {tag.lastUsed}
+                </span>
+              )}
             </a>
           ) : (
             <span>{skillLabel(tag.id, lang)}</span>
@@ -55,7 +55,52 @@ const tags = skills.map((id) => {
 
 <style>
   li {
+    position: relative;
     scroll-margin-top: var(--space-3);
+  }
+
+  /* Bulle « Utilisé dans », au-dessus de la pastille. */
+  .bubble {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    z-index: 1;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    background: var(--text);
+    color: var(--bg);
+    font-family: var(--font);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    /* Masquée, elle est réduite à rien : elle ne peut pas élargir la page sur mobile. */
+    transform: translateX(-50%) scale(0);
+    /* Disparition : fondu, puis réduction une fois invisible. */
+    transition:
+      opacity 0.15s,
+      transform 0s 0.15s;
+  }
+
+  /* La petite pointe sous la bulle. */
+  .bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--text);
+  }
+
+  /* Apparition après 1 s de survol, ou au focus clavier. */
+  li:hover .bubble,
+  a:focus-visible .bubble {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    transition:
+      opacity 0.15s 1s,
+      transform 0s 1s;
   }
 
   /* Le lien couvre toute la pastille, pas seulement le texte. */

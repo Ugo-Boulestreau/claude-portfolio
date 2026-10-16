@@ -21,6 +21,21 @@ const skillGroups = skillGroupList(lang);
     <p class="lead">{t('experience.intro')}</p>
   </div>
 
+  <section class="container section" aria-labelledby="skills">
+    <h2 id="skills">{t('experience.skills')}</h2>
+    <p class="hint">{t('experience.skillsIntro')}</p>
+    <div class="skills">
+      {
+        skillGroups.map((group) => (
+          <div>
+            <h3>{group.label}</h3>
+            <SkillTags skills={group.skills} lang={lang} linkTo="usage" label={group.label} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
   <section class="container section" aria-labelledby="after">
     <h2 id="after">{t('experience.after')}</h2>
     <ol class="timeline" role="list">
@@ -48,21 +63,6 @@ const skillGroups = skillGroupList(lang);
         ))
       }
     </ol>
-  </section>
-
-  <section class="container section" aria-labelledby="skills">
-    <h2 id="skills">{t('experience.skills')}</h2>
-    <p class="hint">{t('experience.skillsIntro')}</p>
-    <div class="skills">
-      {
-        skillGroups.map((group) => (
-          <div>
-            <h3>{group.label}</h3>
-            <SkillTags skills={group.skills} lang={lang} linkTo="usage" label={group.label} />
-          </div>
-        ))
-      }
-    </div>
   </section>
 </Base>
 

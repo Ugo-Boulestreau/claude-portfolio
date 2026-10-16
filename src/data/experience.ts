@@ -344,7 +344,7 @@ type Usage = { href: string; label: string };
 
 /**
  * Étapes où une compétence a été pratiquée, de la plus récente à la plus ancienne
- * (l'ordre des tableaux `afterEpitech` puis `epitechYears`). Calculé au build :
+ * (l'ordre `afterEpitech`, puis `finalProject`, puis `epitechYears`). Calculé au build :
  * il suffit de citer un identifiant dans une étape pour qu'il apparaisse ici.
  */
 export function skillUsage(id: SkillId, lang: Lang): Usage[] {
