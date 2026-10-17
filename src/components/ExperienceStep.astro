@@ -1,8 +1,9 @@
 ---
 import SkillTags from './SkillTags.astro';
-import { placementLabel, type Step } from '../data/experience';
+import { placementLabel, placementTitle, type Step } from '../data/experience';
+import { placementsWithDetail } from '../data/placementDetails';
 import type { Lang } from '../i18n/ui';
-import { useTranslations } from '../i18n/utils';
+import { placementPath, useTranslations } from '../i18n/utils';
 
 interface Props {
   step: Step;
@@ -11,6 +12,7 @@ interface Props {
 
 const { step, lang } = Astro.props;
 const t = useTranslations(lang);
+const withDetail = await placementsWithDetail(lang);
 ---
 
 <article id={step.id} class="step">
@@ -48,6 +50,12 @@ const t = useTranslations(lang);
           ))}
         </ul>
         <SkillTags skills={placement.skills} lang={lang} />
+        {withDetail.has(placement.id) && (
+          <a class="more" href={placementPath(placement.id, lang)}>
+            {t('placement.more')}
+            <span class="visually-hidden"> : {placementTitle(placement, lang)}</span> →
+          </a>
+        )}
       </section>
     ))
   }
@@ -95,6 +103,11 @@ const t = useTranslations(lang);
     border: 1px solid var(--border);
     border-inline-start: 3px solid var(--accent);
     border-radius: var(--radius);
+  }
+
+  .more {
+    align-self: flex-start;
+    font-weight: 600;
   }
 
   /* Mise en évidence de l'étape atteinte via un lien de la section Compétences. */

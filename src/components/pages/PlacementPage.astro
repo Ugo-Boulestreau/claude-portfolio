@@ -1,0 +1,156 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../ProjectCard.astro';
+import SkillTags from '../SkillTags.astro';
+import { findPlacement, placementLabel, placementTitle } from '../../data/experience';
+import { getPlacementDetail } from '../../data/placementDetails';
+import type { Lang } from '../../i18n/ui';
+import { pagePath, placementPath, useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  /** Identifiant du placement dans src/data/experience.ts (ex. « stage-reliev »). */
+  id: string;
+}
+
+const { lang, id } = Astro.props;
+const t = useTranslations(lang);
+
+const found = findPlacement(id);
+if (!found) throw new Error(`Aucun placement « ${id} » dans src/data/experience.ts.`);
+const { step, placement } = found;
+
+const { entry, projects } = await getPlacementDetail(id, lang);
+const { Content } = await render(entry);
+
+const title = placementTitle(placement, lang);
+const experiencePage = pagePath('experience', lang);
+---
+
+<Base
+  lang={lang}
+  page="experience"
+  title={title}
+  description={`${title} · ${placement.period[lang]} · ${placement.role[lang]}`}
+  paths={{ fr: placementPath(id, 'fr'), en: placementPath(id, 'en') }}
+>
+  <div class="container page-header">
+    <p class="back">
+      <a href={`${experiencePage}#${placement.id}`}>← {t('placement.back')}</a>
+    </p>
+    <p class="period">
+      {placementLabel(placement, lang)} · {placement.period[lang]} · {step.short[lang]}
+    </p>
+    <h1>{title}</h1>
+    <p class="lead">{placement.role[lang]}</p>
+    <SkillTags skills={placement.skills} lang={lang} skillsPage={experiencePage} />
+  </div>
+
+  <div class="container section body">
+    <section aria-labelledby="in-brief">
+      <h2 id="in-brief">{t('placement.inBrief')}</h2>
+      <ul class="missions">
+        {placement.missions.map((mission) => <li>{mission[lang]}</li>)}
+      </ul>
+    </section>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {
+      projects.length > 0 && (
+        <section aria-labelledby="related">
+          <h2 id="related">{projects.length > 1 ? t('placement.projects') : t('placement.project')}</h2>
+          <ul class="grid" role="list">
+            {projects.map((project) => (
+              <li>
+                <ProjectCard project={project} lang={lang} heading="h3" />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .page-header p,
+  .page-header h1 {
+    margin: 0;
+  }
+
+  .back {
+    margin-bottom: var(--space-2) !important;
+    font-weight: 600;
+  }
+
+  .back a {
+    text-decoration: none;
+  }
+
+  .period {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .missions,
+  .prose {
+    max-width: 44rem;
+  }
+
+  .missions {
+    margin: 0;
+    padding-inline-start: 1.25rem;
+  }
+
+  /* Le HTML produit par le Markdown n'est pas « scopé » : il faut :global(). */
+  .prose :global(h2) {
+    margin-top: var(--space-4);
+  }
+
+  .prose :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-inline-start: 1.25rem;
+  }
+
+  /* Image suivie d'une ligne en italique : présentées comme une figure et sa légende. */
+  .prose :global(p:has(> img)) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-block: var(--space-3);
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  .prose :global(img) {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+</style>

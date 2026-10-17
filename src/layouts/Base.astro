@@ -4,21 +4,27 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
 import { languages, type Lang, type PageKey } from '../i18n/ui';
-import { assetPath, pagePath, useTranslations } from '../i18n/utils';
+import { assetPath, otherLang, pagePath, useTranslations } from '../i18n/utils';
 
 interface Props {
   lang: Lang;
   page: PageKey;
   title: string;
   description: string;
+  /**
+   * URL de cette page dans chaque langue, pour une sous-page (détail d'un stage).
+   * Par défaut, celles de `page`.
+   */
+  paths?: Record<Lang, string>;
 }
 
 const { lang, page, title, description } = Astro.props;
 const t = useTranslations(lang);
 const fullTitle = `${title} · ${site.name}`;
+const path = (l: Lang) => Astro.props.paths?.[l] ?? pagePath(page, l);
 
 // Absolues si `site` est défini dans astro.config.mjs, relatives sinon.
-const url = (l: Lang) => (Astro.site ? new URL(pagePath(page, l), Astro.site).href : pagePath(page, l));
+const url = (l: Lang) => (Astro.site ? new URL(path(l), Astro.site).href : path(l));
 ---
 
 <!doctype html>
@@ -47,7 +53,7 @@ const url = (l: Lang) => (Astro.site ? new URL(pagePath(page, l), Astro.site).hr
   </head>
   <body>
     <a class="skip-link" href="#contenu">{t('skip')}</a>
-    <Header lang={lang} page={page} />
+    <Header lang={lang} page={page} switchHref={path(otherLang(lang))} />
     <main id="contenu" tabindex="-1">
       <slot />
     </main>

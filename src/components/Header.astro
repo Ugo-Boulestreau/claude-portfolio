@@ -7,9 +7,11 @@ import { otherLang, pagePath, useTranslations } from '../i18n/utils';
 interface Props {
   lang: Lang;
   page: PageKey;
+  /** URL de cette page dans l'autre langue (cible du bouton FR/EN). */
+  switchHref: string;
 }
 
-const { lang, page } = Astro.props;
+const { lang, page, switchHref } = Astro.props;
 const t = useTranslations(lang);
 const other = otherLang(lang);
 const pages = Object.keys(routes) as PageKey[];
@@ -32,7 +34,7 @@ const pages = Object.keys(routes) as PageKey[];
       </ul>
     </nav>
     <div class="tools">
-      <a class="lang" href={pagePath(page, other)} hreflang={other} lang={other} aria-label={t('lang.switch')}>
+      <a class="lang" href={switchHref} hreflang={other} lang={other} aria-label={t('lang.switch')}>
         {other.toUpperCase()}
       </a>
       <ThemeToggle lang={lang} />

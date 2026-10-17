@@ -330,6 +330,20 @@ export function placementLabel(placement: Placement, lang: Lang): string {
   return placementKinds[placement.kind].label[lang];
 }
 
+/** « Stage chez Reliev », « Alternance chez Reliev »… */
+export function placementTitle(placement: Placement, lang: Lang): string {
+  return `${placementKinds[placement.kind].at[lang]} ${placement.company}`;
+}
+
+/** Un stage ou une alternance, avec l'étape (l'année) qui le contient. */
+export function findPlacement(id: string): { step: Step; placement: Placement } | undefined {
+  for (const step of [...afterEpitech, ...epitechYears]) {
+    const placement = step.placements?.find((p) => p.id === id);
+    if (placement) return { step, placement };
+  }
+  return undefined;
+}
+
 export const skillAnchor = (id: SkillId) => `competence-${id}`;
 
 /** Compétences regroupées, dans l'ordre de déclaration. */
@@ -355,7 +369,7 @@ export function skillUsage(id: SkillId, lang: Lang): Usage[] {
     }
     for (const placement of step.placements ?? []) {
       if (placement.skills.includes(id)) {
-        usage.push({ href: `#${placement.id}`, label: `${placementKinds[placement.kind].at[lang]} ${placement.company}` });
+        usage.push({ href: `#${placement.id}`, label: placementTitle(placement, lang) });
       }
     }
   }

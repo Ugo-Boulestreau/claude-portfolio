@@ -20,4 +20,14 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { projects };
+// Détail d'un stage ou d'une alternance : src/content/placements/fr/<id>.md et en/<id>.md.
+// <id> est l'`id` du placement dans src/data/experience.ts ; le texte est le corps du fichier.
+const placements = defineCollection({
+  loader: glob({ pattern: '{fr,en}/*.md', base: './src/content/placements' }),
+  schema: z.object({
+    /** Slugs de projets personnels à mettre en avant (fichiers de src/content/projects/<langue>/). */
+    projects: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { projects, placements };

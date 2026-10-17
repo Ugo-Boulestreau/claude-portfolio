@@ -55,7 +55,9 @@ src/
   i18n/               dictionnaires, routes, utilitaires
   data/site.ts        nom, e-mail, liens, CV
   data/experience.ts  chronologie et compétences (fr + en)
+  data/placementDetails.ts  lien entre les stages et leurs pages de détail
   content/projects/   un Markdown par projet et par langue (fr/, en/)
+  content/placements/ détail d'un stage : un Markdown par stage et par langue (fr/, en/)
   assets/projects/    captures d'écran
   content.config.ts   schéma de la collection `projects`
 ```
@@ -81,6 +83,17 @@ Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
 - Chaque `id` d'étape ou de placement sert d'ancre et doit être unique.
 - Ne rattacher une compétence à une étape que si l'utilisateur l'a confirmé.
 
+## Détailler un stage
+
+- Page de détail : `/parcours/<id>/` et `/en/experience/<id>/`, où `<id>` est l'`id` du placement
+  (`stage-reliev`…). Routes : `src/pages/parcours/[placement].astro` et `src/pages/en/experience/[placement].astro`,
+  contenu : `components/pages/PlacementPage.astro`.
+- Une page n'existe que si `src/content/placements/fr/<id>.md` **et** `en/<id>.md` existent ; la carte du
+  stage affiche alors « Voir le détail ». Le corps du Markdown est le texte détaillé ; les données de base
+  (entreprise, dates, missions, compétences) restent dans `experience.ts`.
+- `projects: [slug]` dans le frontmatter : projets personnels liés, choisis à la main.
+- Le build échoue si un fichier ne correspond à aucun placement, manque dans une langue, ou cite un projet absent.
+
 ## Commandes
 
 - `npm run dev` : serveur de développement (http://localhost:4321)
@@ -89,5 +102,5 @@ Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
 
 ## État du contenu
 
-Coordonnées, CV et parcours sont réels. Les trois projets de la page Projets sont encore des
-**exemples à remplacer** (« À remplacer »). Ne pas inventer d'informations sur le parcours : demander.
+Coordonnées, CV et parcours sont réels. Les trois projets de la page Projets et le texte des pages
+de détail des stages sont encore des **exemples à remplacer** (« À remplacer »). Ne pas inventer d'informations sur le parcours : demander.

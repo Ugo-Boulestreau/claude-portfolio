@@ -14,15 +14,20 @@ interface Props {
   linkTo?: 'skill' | 'usage';
   /** Nom de la liste pour les lecteurs d'écran. */
   label?: string;
+  /**
+   * Mode `skill` : page qui contient la section Compétences, si ce n'est pas la page
+   * courante (ex. depuis le détail d'un stage). Vide par défaut : ancre sur la même page.
+   */
+  skillsPage?: string;
 }
 
-const { skills, lang, linkTo = 'skill' } = Astro.props;
+const { skills, lang, linkTo = 'skill', skillsPage = '' } = Astro.props;
 const t = useTranslations(lang);
 const label = Astro.props.label ?? t('experience.skillsUsed');
 
 const tags = skills.map((id) => {
   if (linkTo === 'skill') {
-    return { id, anchor: undefined, href: `#${skillAnchor(id)}`, lastUsed: undefined };
+    return { id, anchor: undefined, href: `${skillsPage}#${skillAnchor(id)}`, lastUsed: undefined };
   }
   // La plus récente en premier : c'est elle que vise le lien et qu'annonce la bulle.
   const latest = skillUsage(id, lang)[0];

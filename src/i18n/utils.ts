@@ -11,6 +11,11 @@ export function pagePath(page: PageKey, lang: Lang): string {
   return `${base}${routes[page][lang]}`;
 }
 
+/** URL de la page de détail d'un stage : /parcours/<id>/ ou /en/experience/<id>/. */
+export function placementPath(id: string, lang: Lang): string {
+  return `${pagePath('experience', lang)}${id}/`;
+}
+
 /** URL d'un fichier de public/, préfixée par le `base` d'Astro. */
 export function assetPath(path: string): string {
   return `${base}${path}`;
