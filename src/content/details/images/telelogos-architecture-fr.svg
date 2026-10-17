@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 820" width="1000" height="820" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a-req" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7cc4ff"/></marker><marker id="a-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3ddc84"/></marker></defs>
+<rect width="1000" height="820" rx="16" fill="#0f1115"/>
+<text x="40" y="62" font-size="26" font-weight="700" fill="#7cc4ff">Front-end</text>
+<line x1="30" y1="185" x2="970" y2="185" stroke="#3a4150" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="40" y="232" font-size="26" font-weight="700" fill="#3ddc84">Back-end</text>
+<rect x="340" y="40" width="320" height="100" rx="12" fill="#171a21" stroke="#3a4150" stroke-width="2"/><text x="500.0" y="86.0" text-anchor="middle" font-size="22" font-weight="700" fill="#e6e8ee">Page web</text><text x="500.0" y="114.0" text-anchor="middle" font-size="16" fill="#a0a7b4">Angular · TypeScript · HTML</text>
+<rect x="400" y="270" width="200" height="90" rx="12" fill="#171a21" stroke="#3a4150" stroke-width="2"/><text x="500.0" y="311.0" text-anchor="middle" font-size="22" font-weight="700" fill="#e6e8ee">API</text><text x="500.0" y="339.0" text-anchor="middle" font-size="16" fill="#a0a7b4">C#</text>
+<rect x="310" y="450" width="380" height="100" rx="12" fill="#171a21" stroke="#3a4150" stroke-width="2"/><text x="500.0" y="496.0" text-anchor="middle" font-size="22" font-weight="700" fill="#e6e8ee">Couche métier</text><text x="500.0" y="524.0" text-anchor="middle" font-size="16" fill="#a0a7b4">C# · Entity Framework · LINQ</text>
+<path d="M110,660 v100 a120,18 0 0 0 240,0 v-100" fill="#171a21" stroke="#3a4150" stroke-width="2"/><ellipse cx="230" cy="660" rx="120" ry="18" fill="#1d2129" stroke="#3a4150" stroke-width="2"/><text x="230" y="712" text-anchor="middle" font-size="19" font-weight="700" fill="#e6e8ee">Base Indicateurs</text><text x="230" y="740" text-anchor="middle" font-size="16" fill="#a0a7b4">SQL Server</text>
+<path d="M650,660 v100 a120,18 0 0 0 240,0 v-100" fill="#171a21" stroke="#3a4150" stroke-width="2"/><ellipse cx="770" cy="660" rx="120" ry="18" fill="#1d2129" stroke="#3a4150" stroke-width="2"/><text x="770" y="712" text-anchor="middle" font-size="19" font-weight="700" fill="#e6e8ee">Base Redmine</text><text x="770" y="740" text-anchor="middle" font-size="16" fill="#a0a7b4">SQL Server</text>
+<path d="M470,140 V262" fill="none" stroke="#7cc4ff" stroke-width="3" marker-end="url(#a-req)"/>
+<path d="M530,270 V148" fill="none" stroke="#3ddc84" stroke-width="3" marker-end="url(#a-data)"/>
+<text x="455" y="200" text-anchor="end" font-size="16" fill="#7cc4ff">Requêtes HTTP</text>
+<text x="455" y="222" text-anchor="end" font-size="16" fill="#7cc4ff">(Angular, RxJS)</text>
+<text x="545" y="200" font-size="16" fill="#3ddc84">Données</text>
+<text x="545" y="222" font-size="16" fill="#3ddc84">(DTO)</text>
+<path d="M470,360 V442" fill="none" stroke="#7cc4ff" stroke-width="3" marker-end="url(#a-req)"/>
+<path d="M530,450 V368" fill="none" stroke="#3ddc84" stroke-width="3" marker-end="url(#a-data)"/>
+<path d="M400,550 V595 H250 V634" fill="none" stroke="#7cc4ff" stroke-width="3" marker-end="url(#a-req)"/>
+<path d="M200,642 V500 H302" fill="none" stroke="#3ddc84" stroke-width="3" marker-end="url(#a-data)"/>
+<path d="M600,550 V595 H750 V634" fill="none" stroke="#7cc4ff" stroke-width="3" marker-end="url(#a-req)"/>
+<path d="M800,642 V500 H698" fill="none" stroke="#3ddc84" stroke-width="3" marker-end="url(#a-data)"/>
+<line x1="330" y1="792" x2="380" y2="792" stroke="#7cc4ff" stroke-width="3" marker-end="url(#a-req)"/>
+<text x="392" y="798" font-size="16" fill="#a0a7b4">Requête</text>
+<line x1="530" y1="792" x2="580" y2="792" stroke="#3ddc84" stroke-width="3" marker-end="url(#a-data)"/>
+<text x="592" y="798" font-size="16" fill="#a0a7b4">Données</text>
+</svg>

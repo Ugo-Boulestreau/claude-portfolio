@@ -294,8 +294,8 @@ export const epitechYears: Step[] = [
         role: { fr: 'Développement web', en: 'Web development' },
         missions: [
           {
-            fr: 'Conception et développement d’un outil interne de gestion des tickets, de la définition de l’architecture à sa mise en œuvre.',
-            en: 'Designed and built an internal ticket management tool, from defining the architecture to delivery.',
+            fr: 'Développement d’un outil interne de gestion des tickets, rejoint à ses débuts.',
+            en: 'Developed an internal ticket management tool, joining the project in its early days.',
           },
           {
             fr: 'Montée en compétences sur Angular et TypeScript à travers ce projet.',
