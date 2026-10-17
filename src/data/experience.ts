@@ -253,7 +253,7 @@ export const epitechYears: Step[] = [
         id: 'stage-reliev',
         kind: 'internship',
         company: 'Reliev',
-        period: { fr: 'Mars – juillet 2023 · 5 mois', en: 'March – July 2023 · 5 months' },
+        period: { fr: 'Avril – août 2023 · 5 mois', en: 'April – August 2023 · 5 months' },
         role: { fr: 'Développement web', en: 'Web development' },
         missions: relievMissions,
         skills: ['python', 'plotly'],

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420">
+  <defs>
+    <pattern id="minor" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#1c2b23" stroke-width="1"/>
+    </pattern>
+    <pattern id="major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#minor)"/>
+      <path d="M100 0H0V100" fill="none" stroke="#264232" stroke-width="1.5"/>
+    </pattern>
+    <clipPath id="screen"><rect width="1200" height="420" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#screen)">
+    <rect width="1200" height="420" fill="#0b0f0d"/>
+    <rect width="1200" height="420" fill="url(#major)"/>
+    <path d="M0,240 L40,240 Q55,212 70,240 L92,240 L100,254 L110,90 L120,282 L132,240 L165,240 Q195,185 225,240 L300,240 L340,240 Q355,212 370,240 L392,240 L400,254 L410,90 L420,282 L432,240 L465,240 Q495,185 525,240 L600,240 L640,240 Q655,212 670,240 L692,240 L700,254 L710,90 L720,282 L732,240 L765,240 Q795,185 825,240 L900,240 L940,240 Q955,212 970,240 L992,240 L1000,254 L1010,90 L1020,282 L1032,240 L1065,240 Q1095,185 1125,240 L1200,240 " fill="none" stroke="#3ddc84" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g fill="#e6e8ee" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="26" font-weight="700" text-anchor="middle">
+    <text x="355" y="196">P</text>
+    <text x="410" y="74">QRS</text>
+    <text x="495" y="170">T</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect width="1200" height="680" rx="16" fill="#0f1115"/>
+<path d="M0 16a16 16 0 0 1 16-16h1168a16 16 0 0 1 16 16v34H0z" fill="#171a21"/>
+<circle cx="26" cy="25" r="7" fill="#ff5f57"/>
+<circle cx="48" cy="25" r="7" fill="#febc2e"/>
+<circle cx="70" cy="25" r="7" fill="#28c840"/>
+<text x="600.0" y="31" text-anchor="middle" font-size="15" fill="#a0a7b4">Visualiseur ECG · illustration, données fictives</text>
+<rect x="30" y="70" width="190" height="36" rx="8" fill="#1f3a52" stroke="#7cc4ff"/><text x="125.0" y="94" text-anchor="middle" font-size="15" fill="#e6e8ee">← Vue précédente</text>
+<rect x="480" y="70" width="170" height="36" rx="8" fill="#1d2129" stroke="#2a2f3a"/><text x="565.0" y="94" text-anchor="middle" font-size="15" fill="#e6e8ee">◀ Crise précédente</text>
+<rect x="660" y="70" width="170" height="36" rx="8" fill="#1f3a52" stroke="#7cc4ff"/><text x="745.0" y="94" text-anchor="middle" font-size="15" fill="#e6e8ee">Crise suivante ▶</text>
+<rect x="30" y="140" width="800" height="420" rx="10" fill="#0b0f0d" stroke="#2a2f3a"/>
+<line x1="110" y1="140" x2="110" y2="560" stroke="#1c2b23"/>
+<line x1="190" y1="140" x2="190" y2="560" stroke="#1c2b23"/>
+<line x1="270" y1="140" x2="270" y2="560" stroke="#1c2b23"/>
+<line x1="350" y1="140" x2="350" y2="560" stroke="#1c2b23"/>
+<line x1="430" y1="140" x2="430" y2="560" stroke="#1c2b23"/>
+<line x1="510" y1="140" x2="510" y2="560" stroke="#1c2b23"/>
+<line x1="590" y1="140" x2="590" y2="560" stroke="#1c2b23"/>
+<line x1="670" y1="140" x2="670" y2="560" stroke="#1c2b23"/>
+<line x1="750" y1="140" x2="750" y2="560" stroke="#1c2b23"/>
+<line x1="30" y1="210" x2="830" y2="210" stroke="#1c2b23"/>
+<line x1="30" y1="280" x2="830" y2="280" stroke="#1c2b23"/>
+<line x1="30" y1="350" x2="830" y2="350" stroke="#1c2b23"/>
+<line x1="30" y1="420" x2="830" y2="420" stroke="#1c2b23"/>
+<line x1="30" y1="490" x2="830" y2="490" stroke="#1c2b23"/>
+<rect x="300" y="141" width="130" height="418" fill="#ff6b6b" fill-opacity="0.14"/>
+<line x1="300" y1="140" x2="300" y2="560" stroke="#ff6b6b" stroke-dasharray="6 5"/>
+<line x1="430" y1="140" x2="430" y2="560" stroke="#ff6b6b" stroke-dasharray="6 5"/>
+<text x="310" y="168" font-size="15" font-weight="700" fill="#ff8a8a">Crise 1</text>
+<rect x="630" y="141" width="90" height="418" fill="#ff6b6b" fill-opacity="0.14"/>
+<line x1="630" y1="140" x2="630" y2="560" stroke="#ff6b6b" stroke-dasharray="6 5"/>
+<line x1="720" y1="140" x2="720" y2="560" stroke="#ff6b6b" stroke-dasharray="6 5"/>
+<text x="640" y="168" font-size="15" font-weight="700" fill="#ff8a8a">Crise 2</text>
+<path d="M30,390 L48,390 Q53,377 58,390 L62,390 L65,396 L69,293 L73,412 L77,390 Q87,367 97,390 L127,390 Q132,379 137,390 L141,390 L144,396 L148,297 L152,412 L156,390 Q166,369 176,390 L206,390 Q211,378 216,390 L220,390 L223,396 L227,295 L231,412 L235,390 Q245,368 255,390 L287,390 Q292,376 297,390 L301,390 L304,396 L308,290 L312,412 L316,390 Q326,366 336,390 L345,390 Q350,378 355,390 L359,390 L362,396 L366,295 L370,412 L374,390 Q384,368 394,390 L403,390 Q408,376 413,390 L417,390 L420,396 L424,289 L428,412 L432,390 Q442,366 452,390 L461,390 Q466,378 471,390 L475,390 L478,396 L482,294 L486,412 L490,390 Q500,368 510,390 L539,390 Q544,376 549,390 L553,390 L556,396 L560,290 L564,412 L568,390 Q578,366 588,390 L621,390 Q626,379 631,390 L635,390 L638,396 L642,299 L646,412 L650,390 Q660,369 670,390 L679,390 Q684,376 689,390 L693,390 L696,396 L700,290 L704,412 L708,390 Q718,366 728,390 L737,390 Q742,377 747,390 L751,390 L754,396 L758,292 L762,412 L766,390 Q776,367 786,390 L830,390" fill="none" stroke="#3ddc84" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="30" y="588" text-anchor="middle" font-size="14" fill="#a0a7b4">10:05</text>
+<text x="230" y="588" text-anchor="middle" font-size="14" fill="#a0a7b4">10:09</text>
+<text x="430" y="588" text-anchor="middle" font-size="14" fill="#a0a7b4">10:13</text>
+<text x="630" y="588" text-anchor="middle" font-size="14" fill="#a0a7b4">10:17</text>
+<text x="830" y="588" text-anchor="middle" font-size="14" fill="#a0a7b4">10:21</text>
+<rect x="860" y="70" width="310" height="580" rx="10" fill="#171a21" stroke="#2a2f3a"/>
+<text x="880" y="108" font-size="17" font-weight="700" fill="#e6e8ee">Patient</text>
+<text x="880" y="145" font-size="15" fill="#a0a7b4">Identifiant</text>
+<text x="1150" y="145" text-anchor="end" font-size="15" font-weight="600" fill="#e6e8ee">P-0042</text>
+<text x="880" y="183" font-size="15" fill="#a0a7b4">Âge</text>
+<text x="1150" y="183" text-anchor="end" font-size="15" font-weight="600" fill="#e6e8ee">34 ans</text>
+<text x="880" y="221" font-size="15" fill="#a0a7b4">Enregistrement</text>
+<text x="1150" y="221" text-anchor="end" font-size="15" font-weight="600" fill="#e6e8ee">24 h</text>
+<text x="880" y="259" font-size="15" fill="#a0a7b4">Crises annotées</text>
+<text x="1150" y="259" text-anchor="end" font-size="15" font-weight="600" fill="#e6e8ee">2</text>
+<line x1="880" y1="310" x2="1150" y2="310" stroke="#2a2f3a"/>
+<text x="880" y="345" font-size="17" font-weight="700" fill="#e6e8ee">Historique de vue</text>
+<rect x="880" y="365" width="270" height="36" rx="8" fill="#1d2129" stroke="#2a2f3a"/>
+<text x="894" y="388" font-size="14" fill="#e6e8ee">1. Vue globale</text>
+<rect x="880" y="411" width="270" height="36" rx="8" fill="#1d2129" stroke="#2a2f3a"/>
+<text x="894" y="434" font-size="14" fill="#e6e8ee">2. Zoom 10:00 – 11:00</text>
+<rect x="880" y="457" width="270" height="36" rx="8" fill="#1f3a52" stroke="#7cc4ff"/>
+<text x="894" y="480" font-size="14" fill="#e6e8ee">3. Zoom 10:05 – 10:21</text>
+</svg>
