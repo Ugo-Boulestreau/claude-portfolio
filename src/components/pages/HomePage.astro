@@ -27,6 +27,15 @@ const featured = (await getProjects(lang)).filter((project) => project.data.feat
     </p>
   </section>
 
+  <section class="container section" aria-labelledby="about">
+    <div class="about">
+      <h2 id="about">{t('home.about.title')}</h2>
+      <p>{t('home.about.p1')}</p>
+      <p>{t('home.about.p2')}</p>
+      <p>{t('home.about.p3')}</p>
+    </div>
+  </section>
+
   {
     featured.length > 0 && (
       <section class="container section" aria-labelledby="featured">
@@ -47,6 +56,19 @@ const featured = (await getProjects(lang)).filter((project) => project.data.feat
 </Base>
 
 <style>
+  .about {
+    max-width: 44rem;
+    padding: var(--space-3);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-inline-start: 3px solid var(--accent);
+    border-radius: var(--radius);
+  }
+
+  .about p:last-child {
+    margin-bottom: 0;
+  }
+
   .hero {
     padding-block: var(--space-5) var(--space-4);
   }
