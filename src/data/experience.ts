@@ -145,22 +145,6 @@ export const finalProject: Step = {
   skills: ['nestjs'],
 };
 
-// Missions communes au stage puis à l'alternance chez Reliev.
-const relievMissions: Text[] = [
-  {
-    fr: 'Montée en compétences sur Python appliqué au développement web.',
-    en: 'Building up my Python skills for web development.',
-  },
-  {
-    fr: 'Formation à la bibliothèque de visualisation de données Plotly.',
-    en: 'Learning the Plotly data visualisation library.',
-  },
-  {
-    fr: 'Développement et intégration de nouvelles fonctionnalités dans une application existante.',
-    en: 'Developing and integrating new features into an existing application.',
-  },
-];
-
 // Du plus récent au plus ancien, y compris les expériences en entreprise d'une même année.
 export const epitechYears: Step[] = [
   {
@@ -224,7 +208,20 @@ export const epitechYears: Step[] = [
         company: 'Reliev',
         period: { fr: '2024 – 2025 · 3 jours par semaine', en: '2024 – 2025 · 3 days a week' },
         role: { fr: 'Développement web', en: 'Web development' },
-        missions: relievMissions,
+        missions: [
+          {
+            fr: 'Suite de la mission de mon stage de 3e année sur l’outil de visualisation de signaux.',
+            en: 'Continued the assignment from my 3rd-year internship on the signal visualisation tool.',
+          },
+          {
+            fr: 'Comparaison de différents types de signaux, dont les signaux EEG.',
+            en: 'Comparison of different types of signals, including EEG signals.',
+          },
+          {
+            fr: 'Optimisation et refactorisation du code.',
+            en: 'Code optimisation and refactoring.',
+          },
+        ],
         skills: ['python', 'dash', 'plotly', 'matplotlib', 'docker', 'jenkins', 'gitlabCi'],
       },
     ],
@@ -259,7 +256,20 @@ export const epitechYears: Step[] = [
         company: 'Reliev',
         period: { fr: 'Avril – août 2023 · 5 mois', en: 'April – August 2023 · 5 months' },
         role: { fr: 'Développement web', en: 'Web development' },
-        missions: relievMissions,
+        missions: [
+          {
+            fr: 'Montée en compétences sur Python appliqué au développement web.',
+            en: 'Building up my Python skills for web development.',
+          },
+          {
+            fr: 'Formation à la bibliothèque de visualisation de données Plotly.',
+            en: 'Learning the Plotly data visualisation library.',
+          },
+          {
+            fr: 'Développement et intégration de nouvelles fonctionnalités dans une application existante.',
+            en: 'Developing and integrating new features into an existing application.',
+          },
+        ],
         skills: ['python', 'dash', 'plotly', 'matplotlib', 'docker', 'jenkins', 'gitlabCi'],
       },
     ],
