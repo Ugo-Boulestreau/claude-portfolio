@@ -106,5 +106,6 @@ Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
 
 ## État du contenu
 
-Coordonnées, CV et parcours sont réels. Les trois projets de la page Projets et le texte des pages
-de détail des stages sont encore des **exemples à remplacer** (« À remplacer »). Ne pas inventer d'informations sur le parcours : demander.
+Coordonnées, CV, parcours et pages de détail sont réels. Les trois projets de la page Projets sont
+encore des **exemples à remplacer** (« À remplacer »). Stages confidentiels (Reliev, Sopra Steria) :
+uniquement des informations publiques sur l'entreprise, et des illustrations fictives ou génériques. Ne pas inventer d'informations sur le parcours : demander.
