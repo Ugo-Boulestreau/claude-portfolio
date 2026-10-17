@@ -115,7 +115,7 @@ export const afterEpitech: Step[] = [
   },
   {
     id: 'japon',
-    period: { fr: '2025 – 2026', en: '2025 – 2026' },
+    period: { fr: 'Octobre 2025 – octobre 2026', en: 'October 2025 – October 2026' },
     title: { fr: 'Un an au Japon en PVT', en: 'A working holiday year in Japan' },
     short: { fr: 'Japon', en: 'Japan' },
     place: { fr: 'Japon', en: 'Japan' },
