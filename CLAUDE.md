@@ -55,11 +55,11 @@ src/
   i18n/               dictionnaires, routes, utilitaires
   data/site.ts        nom, e-mail, liens, CV
   data/experience.ts  chronologie et compétences (fr + en)
-  data/placementDetails.ts  lien entre les stages et leurs pages de détail
+  data/details.ts     lien entre les étapes / stages et leurs pages de détail
   content/projects/   un Markdown par projet et par langue (fr/, en/)
-  content/placements/ détail d'un stage : un Markdown par stage et par langue (fr/, en/)
+  content/details/    page de détail d'une étape ou d'un stage : un Markdown par langue (fr/, en/), images/
   assets/projects/    captures d'écran
-  content.config.ts   schéma de la collection `projects`
+  content.config.ts   schémas des collections `projects` et `details`
 ```
 
 ## Ajouter un projet
@@ -83,16 +83,20 @@ Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
 - Chaque `id` d'étape ou de placement sert d'ancre et doit être unique.
 - Ne rattacher une compétence à une étape que si l'utilisateur l'a confirmé.
 
-## Détailler un stage
+## Pages de détail (étapes et stages)
 
-- Page de détail : `/parcours/<id>/` et `/en/experience/<id>/`, où `<id>` est l'`id` du placement
-  (`stage-reliev`…). Routes : `src/pages/parcours/[placement].astro` et `src/pages/en/experience/[placement].astro`,
-  contenu : `components/pages/PlacementPage.astro`.
-- Une page n'existe que si `src/content/placements/fr/<id>.md` **et** `en/<id>.md` existent ; la carte du
-  stage affiche alors « Voir le détail ». Le corps du Markdown est le texte détaillé ; les données de base
-  (entreprise, dates, missions, compétences) restent dans `experience.ts`.
+- Une étape du parcours (`japon`…) ou un stage (`stage-reliev`…) peut avoir une page de détail :
+  `/parcours/<id>/` et `/en/experience/<id>/`, où `<id>` est son `id` dans `experience.ts`.
+  Routes : `src/pages/parcours/[detail].astro` et `src/pages/en/experience/[detail].astro`,
+  contenu : `components/pages/DetailPage.astro` ; `findDetailTarget()` dit s'il s'agit d'une étape ou d'un stage.
+- La page n'existe que si `src/content/details/fr/<id>.md` **et** `en/<id>.md` existent ; la carte affiche
+  alors « Voir le détail ». Le corps du Markdown est le texte détaillé ; les données de base (dates,
+  missions ou résumé, compétences) restent dans `experience.ts`.
+- Images du texte dans `src/content/details/images/`, insérées en Markdown (`![alt](../images/x.svg)`) ;
+  une ligne en italique juste en dessous sert de légende. Données confidentielles : maquettes fictives uniquement.
 - `projects: [slug]` dans le frontmatter : projets personnels liés, choisis à la main.
-- Le build échoue si un fichier ne correspond à aucun placement, manque dans une langue, ou cite un projet absent.
+- Le build échoue si un fichier ne correspond à aucune étape ni aucun stage, manque dans une langue,
+  ou cite un projet absent.
 
 ## Commandes
 

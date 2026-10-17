@@ -1,0 +1,12 @@
+---
+import DetailPage from '../../../components/pages/DetailPage.astro';
+import { detailPaths } from '../../../data/details';
+
+// Une page par fichier de src/content/details/en/ : /en/experience/<id>/
+export const getStaticPaths = () => detailPaths('en');
+
+// Toujours défini : getStaticPaths ne génère que des pages avec ce paramètre.
+const { detail } = Astro.params as { detail: string };
+---
+
+<DetailPage lang="en" id={detail} />

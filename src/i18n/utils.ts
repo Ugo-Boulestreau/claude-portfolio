@@ -11,8 +11,8 @@ export function pagePath(page: PageKey, lang: Lang): string {
   return `${base}${routes[page][lang]}`;
 }
 
-/** URL de la page de détail d'un stage : /parcours/<id>/ ou /en/experience/<id>/. */
-export function placementPath(id: string, lang: Lang): string {
+/** URL de la page de détail d'une étape ou d'un stage : /parcours/<id>/ ou /en/experience/<id>/. */
+export function detailPath(id: string, lang: Lang): string {
   return `${pagePath('experience', lang)}${id}/`;
 }
 

@@ -335,11 +335,17 @@ export function placementTitle(placement: Placement, lang: Lang): string {
   return `${placementKinds[placement.kind].at[lang]} ${placement.company}`;
 }
 
-/** Un stage ou une alternance, avec l'étape (l'année) qui le contient. */
-export function findPlacement(id: string): { step: Step; placement: Placement } | undefined {
-  for (const step of [...afterEpitech, ...epitechYears]) {
+/**
+ * Élément du parcours qui peut avoir une page de détail : une étape (le Japon, une année…)
+ * ou un stage / une alternance, avec l'étape qui le contient. `kind` dit lequel des deux.
+ */
+export type DetailTarget = { kind: 'step'; step: Step } | { kind: 'placement'; step: Step; placement: Placement };
+
+export function findDetailTarget(id: string): DetailTarget | undefined {
+  for (const step of [...afterEpitech, finalProject, ...epitechYears]) {
+    if (step.id === id) return { kind: 'step', step };
     const placement = step.placements?.find((p) => p.id === id);
-    if (placement) return { step, placement };
+    if (placement) return { kind: 'placement', step, placement };
   }
   return undefined;
 }

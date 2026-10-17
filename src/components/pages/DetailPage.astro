@@ -3,56 +3,79 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ProjectCard from '../ProjectCard.astro';
 import SkillTags from '../SkillTags.astro';
-import { findPlacement, placementLabel, placementTitle } from '../../data/experience';
-import { getPlacementDetail } from '../../data/placementDetails';
+import { findDetailTarget, placementLabel, placementTitle } from '../../data/experience';
+import { getDetail } from '../../data/details';
 import type { Lang } from '../../i18n/ui';
-import { pagePath, placementPath, useTranslations } from '../../i18n/utils';
+import { detailPath, pagePath, useTranslations } from '../../i18n/utils';
 
 interface Props {
   lang: Lang;
-  /** Identifiant du placement dans src/data/experience.ts (ex. « stage-reliev »). */
+  /** Identifiant d'une étape ou d'un stage dans src/data/experience.ts (ex. « japon », « stage-reliev »). */
   id: string;
 }
 
 const { lang, id } = Astro.props;
 const t = useTranslations(lang);
 
-const found = findPlacement(id);
-if (!found) throw new Error(`Aucun placement « ${id} » dans src/data/experience.ts.`);
-const { step, placement } = found;
+const target = findDetailTarget(id);
+if (!target) throw new Error(`Aucune étape ni aucun stage « ${id} » dans src/data/experience.ts.`);
+const { step } = target;
 
-const { entry, projects } = await getPlacementDetail(id, lang);
+// Ce que l'en-tête affiche, selon qu'il s'agit d'un stage ou d'une étape du parcours.
+const header =
+  target.kind === 'placement'
+    ? {
+        title: placementTitle(target.placement, lang),
+        meta: `${placementLabel(target.placement, lang)} · ${target.placement.period[lang]} · ${step.short[lang]}`,
+        lead: target.placement.role[lang],
+        skills: target.placement.skills,
+        inBrief: target.placement.missions.map((mission) => mission[lang]),
+      }
+    : {
+        title: step.title[lang],
+        meta: step.period[lang],
+        lead: step.place[lang],
+        skills: step.skills,
+        inBrief: [step.summary[lang]],
+      };
+
+const { entry, projects } = await getDetail(id, lang);
 const { Content } = await render(entry);
 
-const title = placementTitle(placement, lang);
 const experiencePage = pagePath('experience', lang);
 ---
 
 <Base
   lang={lang}
   page="experience"
-  title={title}
-  description={`${title} · ${placement.period[lang]} · ${placement.role[lang]}`}
-  paths={{ fr: placementPath(id, 'fr'), en: placementPath(id, 'en') }}
+  title={header.title}
+  description={`${header.title} · ${header.meta} · ${header.lead}`}
+  paths={{ fr: detailPath(id, 'fr'), en: detailPath(id, 'en') }}
 >
   <div class="container page-header">
     <p class="back">
-      <a href={`${experiencePage}#${placement.id}`}>← {t('placement.back')}</a>
+      <a href={`${experiencePage}#${id}`}>← {t('detail.back')}</a>
     </p>
-    <p class="period">
-      {placementLabel(placement, lang)} · {placement.period[lang]} · {step.short[lang]}
-    </p>
-    <h1>{title}</h1>
-    <p class="lead">{placement.role[lang]}</p>
-    <SkillTags skills={placement.skills} lang={lang} skillsPage={experiencePage} />
+    <p class="period">{header.meta}</p>
+    <h1>{header.title}</h1>
+    <p class="lead">{header.lead}</p>
+    <SkillTags skills={header.skills} lang={lang} skillsPage={experiencePage} />
   </div>
 
   <div class="container section body">
     <section aria-labelledby="in-brief">
-      <h2 id="in-brief">{t('placement.inBrief')}</h2>
-      <ul class="missions">
-        {placement.missions.map((mission) => <li>{mission[lang]}</li>)}
-      </ul>
+      <h2 id="in-brief">{t('detail.inBrief')}</h2>
+      {
+        header.inBrief.length > 1 ? (
+          <ul class="missions">
+            {header.inBrief.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p class="summary">{header.inBrief[0]}</p>
+        )
+      }
     </section>
 
     <div class="prose">
@@ -62,7 +85,7 @@ const experiencePage = pagePath('experience', lang);
     {
       projects.length > 0 && (
         <section aria-labelledby="related">
-          <h2 id="related">{projects.length > 1 ? t('placement.projects') : t('placement.project')}</h2>
+          <h2 id="related">{projects.length > 1 ? t('detail.projects') : t('detail.project')}</h2>
           <ul class="grid" role="list">
             {projects.map((project) => (
               <li>
@@ -110,8 +133,13 @@ const experiencePage = pagePath('experience', lang);
   }
 
   .missions,
+  .summary,
   .prose {
     max-width: 44rem;
+  }
+
+  .summary {
+    margin: 0;
   }
 
   .missions {

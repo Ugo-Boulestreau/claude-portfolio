@@ -1,9 +1,9 @@
 ---
 import SkillTags from './SkillTags.astro';
 import { placementLabel, placementTitle, type Step } from '../data/experience';
-import { placementsWithDetail } from '../data/placementDetails';
+import { idsWithDetail } from '../data/details';
 import type { Lang } from '../i18n/ui';
-import { placementPath, useTranslations } from '../i18n/utils';
+import { detailPath, useTranslations } from '../i18n/utils';
 
 interface Props {
   step: Step;
@@ -12,7 +12,7 @@ interface Props {
 
 const { step, lang } = Astro.props;
 const t = useTranslations(lang);
-const withDetail = await placementsWithDetail(lang);
+const withDetail = await idsWithDetail(lang);
 ---
 
 <article id={step.id} class="step">
@@ -37,6 +37,15 @@ const withDetail = await placementsWithDetail(lang);
   <SkillTags skills={step.skills} lang={lang} />
 
   {
+    withDetail.has(step.id) && (
+      <a class="more" href={detailPath(step.id, lang)}>
+        {t('detail.more')}
+        <span class="visually-hidden"> : {step.title[lang]}</span> →
+      </a>
+    )
+  }
+
+  {
     step.placements?.map((placement) => (
       <section id={placement.id} class="placement">
         <p class="period">
@@ -51,8 +60,8 @@ const withDetail = await placementsWithDetail(lang);
         </ul>
         <SkillTags skills={placement.skills} lang={lang} />
         {withDetail.has(placement.id) && (
-          <a class="more" href={placementPath(placement.id, lang)}>
-            {t('placement.more')}
+          <a class="more" href={detailPath(placement.id, lang)}>
+            {t('detail.more')}
             <span class="visually-hidden"> : {placementTitle(placement, lang)}</span> →
           </a>
         )}

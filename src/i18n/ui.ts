@@ -60,11 +60,11 @@ export const ui = {
     'experience.skillsIntro': 'Chaque compétence renvoie à l’étape la plus récente où je l’ai pratiquée.',
     'experience.lastUsed': 'Utilisé dans :',
 
-    'placement.more': 'Voir le détail',
-    'placement.back': 'Retour au parcours',
-    'placement.inBrief': 'En bref',
-    'placement.project': 'Projet personnel lié',
-    'placement.projects': 'Projets personnels liés',
+    'detail.more': 'Voir le détail',
+    'detail.back': 'Retour au parcours',
+    'detail.inBrief': 'En bref',
+    'detail.project': 'Projet personnel lié',
+    'detail.projects': 'Projets personnels liés',
 
     'contact.title': 'Contact',
     'contact.description': 'Me contacter par e-mail, GitHub ou LinkedIn.',
@@ -115,11 +115,11 @@ export const ui = {
     'experience.skillsIntro': 'Each skill links to the most recent step where I practised it.',
     'experience.lastUsed': 'Last used:',
 
-    'placement.more': 'Read more',
-    'placement.back': 'Back to experience',
-    'placement.inBrief': 'At a glance',
-    'placement.project': 'Related personal project',
-    'placement.projects': 'Related personal projects',
+    'detail.more': 'Read more',
+    'detail.back': 'Back to experience',
+    'detail.inBrief': 'At a glance',
+    'detail.project': 'Related personal project',
+    'detail.projects': 'Related personal projects',
 
     'contact.title': 'Contact',
     'contact.description': 'Get in touch by email, GitHub or LinkedIn.',
