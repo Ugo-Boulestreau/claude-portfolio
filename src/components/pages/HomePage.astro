@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
+import profil from '../../assets/profil.jpg';
 import ProjectCard from '../ProjectCard.astro';
 import { site } from '../../data/site';
 import { getProjects } from '../../i18n/projects';
@@ -17,14 +19,18 @@ const featured = (await getProjects(lang)).filter((project) => project.data.feat
 
 <Base lang={lang} page="home" title={t('home.title')} description={t('home.description')}>
   <section class="container hero">
-    <p class="status">{t('home.status')}</p>
-    <h1>{site.name}</h1>
-    <p class="role">{t('home.role')}</p>
-    <p class="lead">{t('home.intro')}</p>
-    <p class="actions">
-      <a class="button button--primary" href={pagePath('projects', lang)}>{t('home.cta.projects')}</a>
-      <a class="button" href={pagePath('contact', lang)}>{t('home.cta.contact')}</a>
-    </p>
+    <div>
+      <p class="status">{t('home.status')}</p>
+      <h1>{site.name}</h1>
+      <p class="role">{t('home.role')}</p>
+      <p class="lead">{t('home.intro')}</p>
+      <p class="actions">
+        <a class="button button--primary" href={pagePath('projects', lang)}>{t('home.cta.projects')}</a>
+        <a class="button" href={pagePath('contact', lang)}>{t('home.cta.contact')}</a>
+      </p>
+    </div>
+    <!-- Visible dès l'ouverture : chargée tout de suite, en priorité. -->
+    <Image src={profil} alt={t('home.photoAlt')} width={480} class="photo" loading="eager" fetchpriority="high" />
   </section>
 
   <section class="container section" aria-labelledby="about">
@@ -70,7 +76,34 @@ const featured = (await getProjects(lang)).filter((project) => project.data.feat
   }
 
   .hero {
+    display: flex;
+    /* Sur mobile, la photo (placée après le texte dans le HTML) passe au-dessus. */
+    flex-direction: column-reverse;
+    gap: var(--space-3);
     padding-block: var(--space-5) var(--space-4);
+  }
+
+  .photo {
+    flex-shrink: 0;
+    width: 9rem;
+    aspect-ratio: 1;
+    /* Recadrage en rond, centré sur le visage. */
+    object-fit: cover;
+    object-position: 50% 25%;
+    border: 3px solid var(--border);
+    border-radius: 50%;
+  }
+
+  @media (min-width: 48rem) {
+    .hero {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .photo {
+      width: 15rem;
+    }
   }
 
   .status {

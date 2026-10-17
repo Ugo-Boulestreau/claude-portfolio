@@ -34,6 +34,7 @@ export const ui = {
     'home.description': 'Portfolio de développeur full-stack : projets, parcours et contact.',
     'home.status': 'En recherche d’emploi',
     'home.role': 'Développeur full-stack',
+    'home.photoAlt': 'Photo de profil',
     'home.intro':
       'Diplômé d’Epitech, je développe des applications web, du front-end au back-end. Après une année passée au Japon, je recherche un CDI de développeur full-stack.',
     'home.cta.projects': 'Voir mes projets',
@@ -97,6 +98,7 @@ export const ui = {
     'home.description': 'Full-stack developer portfolio: projects, experience and contact.',
     'home.status': 'Open to work',
     'home.role': 'Full-stack developer',
+    'home.photoAlt': 'Profile photo',
     'home.intro':
       'An Epitech graduate, I develop web applications, from front-end to back-end. After a year spent in Japan, I am looking for a permanent full-stack developer position.',
     'home.cta.projects': 'See my projects',
