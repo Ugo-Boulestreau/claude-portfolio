@@ -230,7 +230,7 @@ export const epitechYears: Step[] = [
     period: { fr: '2023 – 2024', en: '2023 – 2024' },
     title: { fr: '4e année : un an en Corée du Sud', en: '4th year: a year in South Korea' },
     short: { fr: '4e année (Corée du Sud)', en: '4th year (South Korea)' },
-    place: { fr: 'Keimyung University, Corée du Sud', en: 'Keimyung University, South Korea' },
+    place: { fr: 'Keimyung University, Daegu (Corée du Sud)', en: 'Keimyung University, Daegu (South Korea)' },
     summary: {
       fr: 'Année d’études à l’étranger consacrée à la programmation de jeux vidéo avec Unity et Unreal Engine. Une année qui a mis à l’épreuve mes compétences linguistiques et mon autonomie.',
       en: 'A year studying abroad, focused on video game programming with Unity and Unreal Engine. A year that put my language skills and my independence to the test.',

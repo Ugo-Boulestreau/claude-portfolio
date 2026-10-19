@@ -94,6 +94,8 @@ Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
   missions ou résumé, compétences) restent dans `experience.ts`.
 - Images du texte dans `src/content/details/images/`, insérées en Markdown (`![alt](../images/x.svg)`) ;
   une ligne en italique juste en dessous sert de légende. Données confidentielles : maquettes fictives uniquement.
+  Photos de tiers : uniquement sous licence libre (Wikimedia Commons…), avec auteur, licence et lien source
+  dans la légende ; redimensionnées à 1 400 px de large avant l'ajout (Astro garde la largeur d'origine en Markdown).
 - `projects: [slug]` dans le frontmatter : projets personnels liés, choisis à la main.
 - Le build échoue si un fichier ne correspond à aucune étape ni aucun stage, manque dans une langue,
   ou cite un projet absent.
