@@ -7,28 +7,37 @@ projects: []
 
 After graduating, I chose to take a gap year to grow personally before starting my career. A fan of anime and manga, and of Japanese culture more broadly, I went to Japan on a Working Holiday visa, from October 2025 to October 2026.
 
-It was also my first time travelling alone abroad for more than two weeks.
+I set off with my two best friends. The first one went back to France at the end of February, the second in May: I spent the last five months on my own, my first long solo trip abroad.
 
-## What I did there
+## My journey
 
-I took on three volunteering assignments, which introduced me to very different regions and jobs:
+![Map of Japan with my route in red: Osaka, then north through Tokyo to Sapporo, Atsuma and Lake Kussharo in Hokkaido, a long trip down to Kumamoto in Kyushu, and finally back to Tokyo via Shikoku](../images/japon-parcours-en.svg)
+*My route through Japan, from Osaka to Tokyo by way of Hokkaido and Kyushu.*
 
-- **Kyushu, 3 weeks**: cooking and serving.
-- **Hokkaido, 1 week**: maintaining a guesthouse.
-- **Hokkaido, 3 days**: working on a farm, looking after animals.
+### Osaka and the Kansai region · October 2025 – January 2026
 
-The rest of the year, I lived on my savings, travelling across the country and meeting local people.
+We first lived in Osaka for four months. From there, we explored the Kansai region by renting cars and taking the train: Lake Biwa, Nara, Kyoto, Shikoku, and further away Hiroshima.
 
-I taught myself Japanese, with online resources and above all by practising with locals. I didn’t reach a certified level (JLPT), but this everyday practice was at the heart of my year.
+### Heading north to Hokkaido · late January – late February 2026
 
-While I didn’t code during this time, I kept up with what was happening in software development, especially the rise of AI coding agents such as Claude Code.
+At the end of January, we headed up to Tokyo via Mount Fuji, then crossed the Tohoku region through Yamagata and Aomori before reaching Hokkaido: Hakodate, Mount Yotei, and two weeks in Sapporo. I then did my first volunteering stint, a week at a guesthouse in Atsuma, helping with its upkeep. At the end of February, my first travel companion went back to France.
 
-## The challenges
+### Northern Hokkaido, the two of us
 
-Paperwork was the biggest challenge. Getting the visa was long and tedious. Once there, formalities such as health insurance were entirely in Japanese, poorly explained, and the staff I dealt with didn’t speak English.
+We moved on to a second volunteering stint, on a farm even further north in Hokkaido, near Lakes Kussharo and Mashu. For personal reasons, we only stayed three days, but we still got to enjoy the onsens by the lakes.
 
-Travelling alone in a country whose language is so far from French showed me both the advantages and the drawbacks of that independence.
+### Kyushu · one month
 
-## What I learned
+We then crossed Japan again down to Kyushu, where we lived in Kumamoto for a month. We took the opportunity to discover Nagasaki, Ikeshima island and the surrounding area, as well as Oita and Beppu.
 
-Alone in a completely new environment, I had to adapt quickly: this year proved my ability to find my footing in a foreign setting. It’s the same ability I rely on as a developer, when facing a new codebase or a new technology.
+### On my own, from Kyushu to Tokyo · May – October 2026
+
+In May, my second friend went home in turn. I stayed in Kyushu for my third volunteering stint: three weeks in the kitchen and serving customers. I then travelled up to Tokyo via Shikoku, arriving in mid-June to spend the last four months of my Working Holiday there.
+
+## Looking back
+
+I lived mostly on my savings this year, between travelling, volunteering and meeting people. I taught myself Japanese, with online resources and above all by practising with locals. I didn’t reach a certified level (JLPT), but this everyday practice was at the heart of my year. While I didn’t code during this time, I kept up with what was happening in software development, especially the rise of AI coding agents such as Claude Code.
+
+Paperwork was the biggest challenge. Getting the visa was long and tedious. Once there, formalities such as health insurance were entirely in Japanese, poorly explained, and the staff I dealt with didn’t speak English. The five months on my own, in a country whose language is so far from French, also showed me both the advantages and the drawbacks of complete independence.
+
+This year proved my ability to adapt quickly to a foreign environment and find my footing there. It’s the same ability I rely on as a developer, when facing a new codebase or a new technology.

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1170" width="1100" height="1170" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect width="1100" height="1170" rx="16" fill="#0f1115"/>
+<text x="40" y="70" font-size="30" font-weight="700" fill="#e6e8ee">My journey in Japan</text>
+<text x="40" y="102" font-size="18" fill="#a0a7b4">October 2025 – October 2026</text>
+<polygon points="824,37 865,77 908,122 970,152 1034,126 1020,164 1032,183 1063,202 1001,228 970,232 927,258 905,310 865,281 815,262 765,277 753,300 775,323 741,342 706,349 703,326 694,289 694,258 733,200 753,213 787,209 790,168 809,122 803,77" fill="#1d2129" stroke="#3a4150" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="725,360 760,339 794,347 803,417 832,485 806,538 800,584 762,614 753,689 757,780 700,833 666,811 632,863 629,829 592,860 536,856 511,863 511,886 441,950 400,909 406,860 369,856 319,879 269,886 207,905 145,913 139,886 195,856 276,795 356,788 412,776 455,780 468,735 502,697 536,644 542,701 598,667 644,614 676,561 700,500 685,459 697,410" fill="#1d2129" stroke="#3a4150" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="369,886 378,916 344,966 307,947 269,1006 238,969 207,958 245,920 269,905 307,886" fill="#1d2129" stroke="#3a4150" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="139,913 189,939 198,966 207,992 189,1022 176,1068 167,1113 124,1136 99,1117 93,1075 93,1045 121,1003 99,973 74,1003 59,973 80,950 108,939" fill="#1d2129" stroke="#3a4150" stroke-width="2" stroke-linejoin="round"/>
+<path d="M424,857 L625,806 L684,782 L726,588 L749,393 L749,321 L754,241 L787,224 L820,249 L976,183" fill="none" stroke="#ff5c5c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M976,183 Q850,1170 127,1000" fill="none" stroke="#ff5c5c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 10"/>
+<path d="M127,1000 L307,920 L684,782" fill="none" stroke="#ff5c5c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="424" cy="857" r="7" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<text x="410" y="863" text-anchor="end" font-size="19" font-weight="700" fill="#e6e8ee" paint-order="stroke" stroke="#0f1115" stroke-width="5" stroke-linejoin="round">Osaka</text>
+<circle cx="625" cy="806" r="4.5" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<circle cx="684" cy="782" r="7" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<text x="698" y="804" text-anchor="start" font-size="19" font-weight="700" fill="#e6e8ee" paint-order="stroke" stroke="#0f1115" stroke-width="5" stroke-linejoin="round">Tokyo</text>
+<circle cx="726" cy="588" r="4.5" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<circle cx="749" cy="393" r="4.5" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<circle cx="749" cy="321" r="4.5" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<circle cx="754" cy="241" r="4.5" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<circle cx="787" cy="224" r="7" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<text x="775" y="214" text-anchor="end" font-size="19" font-weight="700" fill="#e6e8ee" paint-order="stroke" stroke="#0f1115" stroke-width="5" stroke-linejoin="round">Sapporo</text>
+<circle cx="820" cy="249" r="7" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<text x="832" y="271" text-anchor="start" font-size="19" font-weight="700" fill="#e6e8ee" paint-order="stroke" stroke="#0f1115" stroke-width="5" stroke-linejoin="round">Atsuma</text>
+<circle cx="976" cy="183" r="7" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<text x="962" y="209" text-anchor="end" font-size="19" font-weight="700" fill="#e6e8ee" paint-order="stroke" stroke="#0f1115" stroke-width="5" stroke-linejoin="round">Lake Kussharo</text>
+<circle cx="127" cy="1000" r="7" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<text x="141" y="1006" text-anchor="start" font-size="19" font-weight="700" fill="#e6e8ee" paint-order="stroke" stroke="#0f1115" stroke-width="5" stroke-linejoin="round">Kumamoto</text>
+<circle cx="307" cy="920" r="4.5" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+<circle cx="684" cy="782" r="4.5" fill="#e6e8ee" stroke="#0f1115" stroke-width="2"/>
+</svg>
