@@ -1,9 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ProjectCard from '../ProjectCard.astro';
+import { site } from '../../data/site';
 import { getProjects } from '../../i18n/projects';
 import type { Lang } from '../../i18n/ui';
-import { useTranslations } from '../../i18n/utils';
+import { pagePath, useTranslations } from '../../i18n/utils';
 
 interface Props {
   lang: Lang;
@@ -11,6 +12,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+// Sans projet, la page affiche « en construction » ; le message disparaît dès le premier projet ajouté.
 const projects = await getProjects(lang);
 ---
 
@@ -20,14 +22,50 @@ const projects = await getProjects(lang);
     <p class="lead">{t('projects.intro')}</p>
   </div>
   <div class="container section">
-    <ul class="grid" role="list">
-      {
-        projects.map((project) => (
-          <li>
-            <ProjectCard project={project} lang={lang} />
-          </li>
-        ))
-      }
-    </ul>
+    {
+      projects.length > 0 ? (
+        <ul class="grid" role="list">
+          {projects.map((project) => (
+            <li>
+              <ProjectCard project={project} lang={lang} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <section class="wip" aria-labelledby="wip">
+          <h2 id="wip">{t('projects.wip.title')}</h2>
+          <p>{t('projects.wip.text')}</p>
+          <p class="actions">
+            <a class="button button--primary" href={pagePath('experience', lang)}>
+              {t('projects.wip.experience')}
+            </a>
+            <a class="button" href={site.github}>
+              GitHub
+            </a>
+          </p>
+        </section>
+      )
+    }
   </div>
 </Base>
+
+<style>
+  .wip {
+    max-width: 44rem;
+    padding: var(--space-3);
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+  }
+
+  .wip h2 {
+    margin-bottom: var(--space-1);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: var(--space-3) 0 0;
+  }
+</style>

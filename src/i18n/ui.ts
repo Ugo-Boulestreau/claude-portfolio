@@ -55,6 +55,10 @@ export const ui = {
     'projects.tech': 'Technologies',
     'projects.github': 'Code sur GitHub',
     'projects.demo': 'Voir la démo',
+    'projects.wip.title': 'Page en construction',
+    'projects.wip.text':
+      'J’alimenterai cette page au fur et à mesure de mes projets personnels. En attendant, vous pouvez découvrir mon parcours et mes compétences, ou mon profil GitHub.',
+    'projects.wip.experience': 'Voir mon parcours',
 
     'experience.title': 'Parcours et compétences',
     'experience.description': 'Compétences, formation Epitech année par année et stages.',
@@ -119,6 +123,10 @@ export const ui = {
     'projects.tech': 'Technologies',
     'projects.github': 'Code on GitHub',
     'projects.demo': 'View demo',
+    'projects.wip.title': 'Under construction',
+    'projects.wip.text':
+      'I will add my personal projects to this page as they come along. In the meantime, you can explore my experience and skills, or my GitHub profile.',
+    'projects.wip.experience': 'See my experience',
 
     'experience.title': 'Experience & skills',
     'experience.description': 'Skills, Epitech education year by year and internships.',

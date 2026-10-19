@@ -106,6 +106,7 @@ Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
 
 ## État du contenu
 
-Coordonnées, CV, parcours et pages de détail sont réels. Les trois projets de la page Projets sont
-encore des **exemples à remplacer** (« À remplacer »). Stages confidentiels (Reliev, Sopra Steria) :
+Coordonnées, CV, parcours et pages de détail sont réels. La page Projets est **en construction** :
+aucun projet pour l'instant, elle affiche un message et l'accueil renvoie vers le parcours ; tout
+redevient normal dès le premier projet ajouté (voir « Ajouter un projet »). Stages confidentiels (Reliev, Sopra Steria) :
 uniquement des informations publiques sur l'entreprise, et des illustrations fictives ou génériques. Ne pas inventer d'informations sur le parcours : demander.

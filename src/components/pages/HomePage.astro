@@ -14,7 +14,13 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const featured = (await getProjects(lang)).filter((project) => project.data.featured);
+const projects = await getProjects(lang);
+const featured = projects.filter((project) => project.data.featured);
+// Tant qu'il n'y a aucun projet, le bouton principal mène au parcours plutôt qu'à une page vide.
+const mainCta =
+  projects.length > 0
+    ? { href: pagePath('projects', lang), label: t('home.cta.projects') }
+    : { href: pagePath('experience', lang), label: t('projects.wip.experience') };
 ---
 
 <Base lang={lang} page="home" title={t('home.title')} description={t('home.description')}>
@@ -25,7 +31,7 @@ const featured = (await getProjects(lang)).filter((project) => project.data.feat
       <p class="role">{t('home.role')}</p>
       <p class="lead">{t('home.intro')}</p>
       <p class="actions">
-        <a class="button button--primary" href={pagePath('projects', lang)}>{t('home.cta.projects')}</a>
+        <a class="button button--primary" href={mainCta.href}>{mainCta.label}</a>
         <a class="button" href={pagePath('contact', lang)}>{t('home.cta.contact')}</a>
       </p>
     </div>
