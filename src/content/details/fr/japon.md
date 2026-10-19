@@ -9,35 +9,37 @@ Après mon diplôme, j’ai choisi de prendre une année sabbatique pour m’enr
 
 Je suis parti avec mes deux meilleurs amis. Le premier est rentré en France fin février, le second en mai : j’ai vécu les cinq derniers mois seul, mon premier long voyage en solo à l’étranger.
 
-## Mon parcours
+## Ce que j’y ai fait
+
+J’ai vécu cette année principalement sur mes économies, et j’ai effectué plusieurs missions de volontariat. Sur place, tout se passait en anglais : notre japonais n’était pas encore suffisant pour travailler dans la langue.
+
+### Volontariat en cuisine dans le Kyushu · 3 semaines
+
+Avec d’autres volontaires venus de différents pays, je concevais et préparais des plats pour des régimes variés : végétariens, sans gluten ou omnivores. Le travail était organisé en deux services, que nous nous répartissions en début de semaine : le matin, de 10 h à 14 h, et le soir, de 18 h à 22 h.
+
+Cette expérience m’a demandé de la coopération, de l’improvisation, de la communication et un vrai travail d’équipe, avec des personnes d’horizons très différents.
+
+### Volontariat dans une guesthouse à Atsuma · 1 semaine
+
+À Hokkaido, je préparais les petits-déjeuners et je nettoyais les chambres d’une guesthouse. J’y ai aussi échangé en anglais avec des collégiens japonais qui apprenaient la langue.
+
+J’ai également passé trois jours dans une ferme près du lac Kussharo, un volontariat écourté pour des raisons personnelles.
+
+### Le japonais et la veille technologique
+
+J’ai appris le japonais en autodidacte, avec des ressources en ligne et surtout en pratiquant avec des locaux. Je n’ai pas atteint un niveau certifié (JLPT), mais cette pratique au quotidien a été au cœur de mon année.
+
+Sans coder pendant cette période, j’ai continué à suivre l’actualité du développement, en particulier l’essor des agents IA de programmation comme Claude Code.
+
+## Ce que j’en retiens
+
+Les démarches administratives ont été le plus grand défi. Obtenir le visa a été long et fastidieux. Une fois sur place, les formalités comme l’assurance santé se faisaient entièrement en japonais, avec des explications peu claires et des interlocuteurs qui ne parlaient pas anglais. Les cinq mois passés seul, dans un pays dont la langue est si éloignée du français, m’ont aussi fait découvrir les avantages comme les inconvénients d’une autonomie complète.
+
+Cette année a prouvé ma capacité à m’adapter rapidement à un environnement étranger et à y trouver ma place, et à travailler en équipe en anglais avec des personnes venues du monde entier. C’est la même capacité d’adaptation que je mobilise en développement, face à une nouvelle base de code ou une nouvelle technologie.
+
+## Bonus : mon parcours
 
 ![Carte du Japon avec mon itinéraire en rouge : Osaka, puis une remontée par Tokyo jusqu’à Sapporo, Atsuma et le lac Kussharo à Hokkaido, une traversée jusqu’à Kumamoto dans le Kyushu, et enfin un retour à Tokyo par le Shikoku](../images/japon-parcours-fr.svg)
 *Mon itinéraire au Japon, d’Osaka à Tokyo en passant par Hokkaido et le Kyushu.*
 
-### Osaka et le Kansai · octobre 2025 – janvier 2026
-
-Nous avons d’abord vécu quatre mois à Osaka. Depuis cette base, nous avons exploré la région du Kansai en louant des voitures et en prenant le train : le lac Biwa, Nara, Kyoto, le Shikoku, et plus loin Hiroshima.
-
-### Vers le nord, jusqu’à Hokkaido · fin janvier – fin février 2026
-
-Fin janvier, nous sommes remontés vers Tokyo en passant par le mont Fuji, puis nous avons traversé le Tohoku par Yamagata et Aomori, avant de rejoindre Hokkaido : Hakodate, le mont Yotei, et deux semaines à Sapporo. J’ai ensuite fait mon premier volontariat, une semaine dans une guesthouse à Atsuma, dont je participais à l’entretien. Fin février, mon premier compagnon de voyage est rentré en France.
-
-### Le nord de Hokkaido, à deux
-
-Nous avons poursuivi avec un deuxième volontariat, dans une ferme encore plus au nord de Hokkaido, près des lacs Kussharo et Mashu. Pour des raisons personnelles, nous ne sommes restés que trois jours, mais nous avons pu profiter des onsens au bord des lacs.
-
-### Le Kyushu · un mois
-
-Nous avons ensuite retraversé le Japon jusqu’au Kyushu, où nous avons vécu un mois à Kumamoto. Nous en avons profité pour découvrir Nagasaki, l’île d’Ikeshima et leurs alentours, ainsi qu’Oita et Beppu.
-
-### Seul, du Kyushu à Tokyo · mai – octobre 2026
-
-En mai, mon second ami est rentré à son tour. Je suis resté dans le Kyushu pour mon troisième volontariat : trois semaines en cuisine et en service. Je suis ensuite remonté à Tokyo en passant par le Shikoku, et j’y suis arrivé mi-juin pour y vivre les quatre derniers mois de mon PVT.
-
-## Bilan
-
-J’ai vécu cette année principalement sur mes économies, entre voyages, volontariats et rencontres. J’ai appris le japonais en autodidacte, avec des ressources en ligne et surtout en pratiquant avec des locaux. Je n’ai pas atteint un niveau certifié (JLPT), mais cette pratique au quotidien a été au cœur de mon année. Sans coder pendant cette période, j’ai continué à suivre l’actualité du développement, en particulier l’essor des agents IA de programmation comme Claude Code.
-
-Les démarches administratives ont été le plus grand défi. Obtenir le visa a été long et fastidieux. Une fois sur place, les formalités comme l’assurance santé se faisaient entièrement en japonais, avec des explications peu claires et des interlocuteurs qui ne parlaient pas anglais. Les cinq mois passés seul, dans un pays dont la langue est si éloignée du français, m’ont aussi fait découvrir les avantages comme les inconvénients d’une autonomie complète.
-
-Cette année a prouvé ma capacité à m’adapter rapidement à un environnement étranger et à y trouver ma place. C’est la même capacité que je mobilise en développement, face à une nouvelle base de code ou une nouvelle technologie.
+Avec mes deux amis, nous avons d’abord vécu quatre mois à Osaka, en explorant le Kansai : Kyoto, Nara, le lac Biwa, le Shikoku et Hiroshima. Fin janvier, nous sommes remontés jusqu’à Hokkaido par le mont Fuji, Tokyo et le Tohoku, avec deux semaines à Sapporo et le volontariat à Atsuma. Après le départ de mon premier ami, fin février, nous sommes passés à deux par les lacs Kussharo et Mashu, puis avons vécu un mois à Kumamoto, dans le Kyushu. En mai, mon second ami est rentré à son tour : après mon volontariat dans le Kyushu, je suis remonté à Tokyo par le Shikoku, où j’ai vécu de mi-juin jusqu’à la fin de mon PVT.

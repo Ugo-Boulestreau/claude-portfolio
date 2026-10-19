@@ -123,8 +123,8 @@ export const afterEpitech: Step[] = [
     short: { fr: 'Japon', en: 'Japan' },
     place: { fr: 'Japon', en: 'Japan' },
     summary: {
-      fr: 'Une année au Japon dans le cadre d’un Programme Vacances-Travail (PVT), après la fin de mes études.',
-      en: 'A year in Japan on a Working Holiday visa, after graduating.',
+      fr: 'Une année sabbatique au Japon en PVT : volontariats en équipe internationale, apprentissage du japonais et autonomie.',
+      en: 'A gap year in Japan on a Working Holiday visa: volunteering in international teams, learning Japanese and independence.',
     },
     skills: ['english', 'japanese'],
   },

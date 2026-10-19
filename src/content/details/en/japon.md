@@ -9,35 +9,37 @@ After graduating, I chose to take a gap year to grow personally before starting 
 
 I set off with my two best friends. The first one went back to France at the end of February, the second in May: I spent the last five months on my own, my first long solo trip abroad.
 
-## My journey
+## What I did there
+
+I lived mostly on my savings this year, and took on several volunteering assignments. Everything happened in English: our Japanese wasn’t yet good enough to work in the language.
+
+### Kitchen volunteering in Kyushu · 3 weeks
+
+With other volunteers from different countries, I designed and cooked dishes for a range of diets: vegetarian, gluten-free or omnivore. The work was organised in two shifts, which we shared out at the start of each week: mornings from 10 am to 2 pm, and evenings from 6 pm to 10 pm.
+
+This experience called for cooperation, improvisation, communication and real teamwork, with people from very different backgrounds.
+
+### Guesthouse volunteering in Atsuma · 1 week
+
+In Hokkaido, I prepared breakfasts and cleaned the rooms of a guesthouse. I also spoke English with Japanese middle-school students who were learning the language.
+
+I also spent three days on a farm near Lake Kussharo, a volunteering stint cut short for personal reasons.
+
+### Japanese and keeping up with tech
+
+I taught myself Japanese, with online resources and above all by practising with locals. I didn’t reach a certified level (JLPT), but this everyday practice was at the heart of my year.
+
+While I didn’t code during this time, I kept up with what was happening in software development, especially the rise of AI coding agents such as Claude Code.
+
+## What I learned
+
+Paperwork was the biggest challenge. Getting the visa was long and tedious. Once there, formalities such as health insurance were entirely in Japanese, poorly explained, and the staff I dealt with didn’t speak English. The five months on my own, in a country whose language is so far from French, also showed me both the advantages and the drawbacks of complete independence.
+
+This year proved my ability to adapt quickly to a foreign environment and find my footing there, and to work as part of a team in English with people from all over the world. It’s the same adaptability I rely on as a developer, when facing a new codebase or a new technology.
+
+## Bonus: my journey
 
 ![Map of Japan with my route in red: Osaka, then north through Tokyo to Sapporo, Atsuma and Lake Kussharo in Hokkaido, a long trip down to Kumamoto in Kyushu, and finally back to Tokyo via Shikoku](../images/japon-parcours-en.svg)
 *My route through Japan, from Osaka to Tokyo by way of Hokkaido and Kyushu.*
 
-### Osaka and the Kansai region · October 2025 – January 2026
-
-We first lived in Osaka for four months. From there, we explored the Kansai region by renting cars and taking the train: Lake Biwa, Nara, Kyoto, Shikoku, and further away Hiroshima.
-
-### Heading north to Hokkaido · late January – late February 2026
-
-At the end of January, we headed up to Tokyo via Mount Fuji, then crossed the Tohoku region through Yamagata and Aomori before reaching Hokkaido: Hakodate, Mount Yotei, and two weeks in Sapporo. I then did my first volunteering stint, a week at a guesthouse in Atsuma, helping with its upkeep. At the end of February, my first travel companion went back to France.
-
-### Northern Hokkaido, the two of us
-
-We moved on to a second volunteering stint, on a farm even further north in Hokkaido, near Lakes Kussharo and Mashu. For personal reasons, we only stayed three days, but we still got to enjoy the onsens by the lakes.
-
-### Kyushu · one month
-
-We then crossed Japan again down to Kyushu, where we lived in Kumamoto for a month. We took the opportunity to discover Nagasaki, Ikeshima island and the surrounding area, as well as Oita and Beppu.
-
-### On my own, from Kyushu to Tokyo · May – October 2026
-
-In May, my second friend went home in turn. I stayed in Kyushu for my third volunteering stint: three weeks in the kitchen and serving customers. I then travelled up to Tokyo via Shikoku, arriving in mid-June to spend the last four months of my Working Holiday there.
-
-## Looking back
-
-I lived mostly on my savings this year, between travelling, volunteering and meeting people. I taught myself Japanese, with online resources and above all by practising with locals. I didn’t reach a certified level (JLPT), but this everyday practice was at the heart of my year. While I didn’t code during this time, I kept up with what was happening in software development, especially the rise of AI coding agents such as Claude Code.
-
-Paperwork was the biggest challenge. Getting the visa was long and tedious. Once there, formalities such as health insurance were entirely in Japanese, poorly explained, and the staff I dealt with didn’t speak English. The five months on my own, in a country whose language is so far from French, also showed me both the advantages and the drawbacks of complete independence.
-
-This year proved my ability to adapt quickly to a foreign environment and find my footing there. It’s the same ability I rely on as a developer, when facing a new codebase or a new technology.
+With my two friends, we first lived in Osaka for four months, exploring the Kansai region: Kyoto, Nara, Lake Biwa, Shikoku and Hiroshima. At the end of January, we headed north to Hokkaido via Mount Fuji, Tokyo and the Tohoku region, with two weeks in Sapporo and the volunteering stint in Atsuma. After my first friend left at the end of February, the two of us went on to Lakes Kussharo and Mashu, then lived in Kumamoto, in Kyushu, for a month. In May, my second friend went home in turn: after my volunteering in Kyushu, I travelled up to Tokyo via Shikoku, where I lived from mid-June until the end of my Working Holiday.
