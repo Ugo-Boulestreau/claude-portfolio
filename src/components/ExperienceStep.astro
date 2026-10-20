@@ -21,19 +21,6 @@ const withDetail = await idsWithDetail(lang);
   <p class="place">{step.place[lang]}</p>
   <p>{step.summary[lang]}</p>
 
-  {
-    step.projects && step.projects.length > 0 && (
-      <>
-        <h4>{t('experience.projects')}</h4>
-        <ul class="projects">
-          {step.projects.map((project) => (
-            <li>{project[lang]}</li>
-          ))}
-        </ul>
-      </>
-    )
-  }
-
   <SkillTags skills={step.skills} lang={lang} />
 
   {
@@ -99,7 +86,6 @@ const withDetail = await idsWithDetail(lang);
     color: var(--muted);
   }
 
-  ul.projects,
   ul.missions {
     margin: 0;
     padding-inline-start: 1.25rem;

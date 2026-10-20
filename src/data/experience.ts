@@ -97,8 +97,6 @@ export type Step = {
   short: Text;
   place: Text;
   summary: Text;
-  /** Projets cités sans lien : les dépôts Epitech ne sont plus accessibles. */
-  projects?: Text[];
   skills: SkillId[];
   placements?: Placement[];
 };
