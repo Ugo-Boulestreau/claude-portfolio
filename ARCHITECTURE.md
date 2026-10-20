@@ -14,7 +14,8 @@ Il s’adresse à quelqu’un qui connaît HTML, CSS et un peu de JavaScript, ma
 6. [Les pages de détail](#6-les-pages-de-détail)
 7. [Le CSS et le thème](#7-le-css-et-le-thème)
 8. [Les images](#8-les-images)
-9. [Glossaire](#9-glossaire)
+9. [La mise en ligne](#9-la-mise-en-ligne)
+10. [Glossaire](#10-glossaire)
 
 ---
 
@@ -54,7 +55,8 @@ gratuit à héberger, sans faille côté serveur, et il continue de fonctionner 
 ## 2. Les dossiers et leur rôle
 
 ```
-astro.config.mjs        configuration d'Astro (langues, futur nom de domaine)
+astro.config.mjs        configuration d'Astro (langues, adresse et sous-dossier du site)
+.github/workflows/      le déploiement automatique sur GitHub Pages
 CLAUDE.md               règles du projet, lues par Claude Code à chaque session
 public/                 fichiers copiés tels quels : CV en PDF, favicon
 src/
@@ -151,7 +153,8 @@ Trois fichiers gèrent tout, dans [`src/i18n/`](src/i18n/) :
   - `ui` : tous les textes d’interface (menus, boutons, titres), une clé par texte, en français et en anglais.
 - **[`utils.ts`](src/i18n/utils.ts)** fournit les fonctions à utiliser partout :
   - `useTranslations(lang)` renvoie une fonction `t('nav.home')` qui donne le texte dans la bonne langue ;
-  - `pagePath('experience', 'en')` renvoie `/en/experience/` ; **aucune URL interne n’est écrite en dur** ;
+  - `pagePath('experience', 'en')` renvoie `/claude-portfolio/en/experience/` : l’URL de la page, précédée
+    du sous-dossier où le site est publié (voir la partie 9). **Aucune URL interne n’est écrite en dur** ;
   - `detailPath(id, lang)` construit l’URL d’une page de détail.
 - **[`projects.ts`](src/i18n/projects.ts)** récupère les projets d’une langue.
 
@@ -342,7 +345,41 @@ licence CC BY-SA 3.0, et sont créditées dans leur légende.
 
 ---
 
-## 9. Glossaire
+## 9. La mise en ligne
+
+Le site est publié sur **GitHub Pages**, à l’adresse https://ugo-boulestreau.github.io/claude-portfolio/.
+
+```mermaid
+flowchart LR
+    push["git push<br/>sur main"] --> action["GitHub Actions<br/>.github/workflows/deploy.yml"]
+    action --> build["npm ci<br/>npm run build"]
+    build --> pages["GitHub Pages<br/>publie dist/"]
+```
+
+À chaque push sur `main`, le workflow [`deploy.yml`](.github/workflows/deploy.yml) fait sur les serveurs de
+GitHub ce que vous feriez en local : installer les dépendances (`npm ci`), construire le site
+(`npm run build`), puis publier le dossier `dist/`. Son avancement se suit dans l’onglet **Actions** du dépôt.
+
+### Le sous-dossier `/claude-portfolio`
+
+GitHub Pages publie le site dans un sous-dossier qui porte le nom du dépôt. Deux réglages de
+[`astro.config.mjs`](astro.config.mjs) le prennent en compte :
+
+- **`base: '/claude-portfolio'`** : Astro l’expose dans `import.meta.env.BASE_URL`, et `pagePath()` comme
+  `assetPath()` l’ajoutent devant chaque lien interne. C’est la raison de la règle « aucune URL interne en
+  dur » : un `href="/parcours/"` écrit à la main mènerait en ligne à une page introuvable.
+- **`site: 'https://ugo-boulestreau.github.io'`** : il permet de construire les adresses complètes
+  utilisées par les moteurs de recherche et les réseaux sociaux (URL canonique, liens `hreflang`, Open Graph).
+
+En local, le serveur de développement applique le même sous-dossier : le site est à
+http://localhost:4321/claude-portfolio/.
+
+Les liens écrits dans le Markdown des pages de détail sont **relatifs** (`../stage-reliev/`) : ils
+fonctionnent quel que soit le sous-dossier.
+
+---
+
+## 10. Glossaire
 
 | Terme | Définition |
 | --- | --- |
@@ -357,3 +394,4 @@ licence CC BY-SA 3.0, et sont créditées dans leur légende.
 | **Scoped (CSS)** | Styles limités au composant qui les déclare. |
 | **Site statique** | Site fait uniquement de fichiers préparés à l’avance, sans calcul côté serveur. |
 | **WebP** | Format d’image moderne, plus léger que JPEG ou PNG à qualité égale. |
+| **Workflow** | Suite d’étapes automatisées que GitHub Actions exécute à un événement donné, ici chaque push sur `main`. |

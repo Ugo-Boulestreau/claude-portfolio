@@ -3,6 +3,8 @@
 Portfolio bilingue (français / anglais) de développeur full-stack : parcours à Epitech, stages,
 compétences et contact.
 
+**Site en ligne : https://ugo-boulestreau.github.io/claude-portfolio/**
+
 ## Un projet construit avec Claude Code
 
 Ce site a été codé avec l’aide de [Claude Code](https://claude.com/claude-code), l’assistant de
@@ -24,10 +26,13 @@ Il faut Node.js 22.12 ou plus récent.
 
 ```bash
 npm install
-npm run dev       # serveur de développement sur http://localhost:4321
+npm run dev       # serveur de développement sur http://localhost:4321/claude-portfolio/
 npm run build     # génère le site dans dist/
 npm run preview   # sert le site généré
 ```
+
+Le site est publié sur GitHub Pages par le workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
+à chaque push sur `main`.
 
 ## Comprendre le code
 
