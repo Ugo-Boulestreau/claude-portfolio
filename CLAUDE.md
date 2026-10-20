@@ -44,6 +44,12 @@ les variables CSS, définies pour les deux thèmes.
 - Ne jamais écrire une URL interne en dur : utiliser `pagePath()` / `assetPath()` de `src/i18n/utils.ts`.
 - Tout contenu ajouté doit exister en français et en anglais.
 
+## Documentation
+
+`README.md` (présentation du dépôt) et `ARCHITECTURE.md` (fonctionnement détaillé, pour un développeur
+junior). Mettre `ARCHITECTURE.md` à jour à chaque changement d'architecture : dossiers, mécanismes,
+noms de fonctions.
+
 ## Structure
 
 ```
