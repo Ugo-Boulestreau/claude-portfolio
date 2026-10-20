@@ -47,7 +47,7 @@ export const ui = {
     'home.about.p2':
       'Je suis conscient des nouveaux défis du numérique et de la puissance des outils modernes, et je me forme en conséquence. Ce site a été codé avec l’aide de Claude Code, l’assistant de programmation d’Anthropic, que j’ai piloté : les choix, les contenus, la relecture et la validation de chaque étape.',
     'home.about.p3':
-      'Je l’ai réalisé en une semaine, pendant ma période d’essai de Claude Code, avec Astro, une technologie nouvelle pour moi. Aurais-je pu faire la même chose seul, en si peu de temps ? Probablement pas, et je ne comprends d’ailleurs pas encore l’intégralité du code. Mais c’est tout l’objet de ce projet : apprendre et prendre en main ces outils, en demandant à Claude d’expliquer ses choix au fil du projet.',
+      'Je l’ai réalisé en une semaine, pendant ma période d’essai de Claude Code, avec Astro, une technologie nouvelle pour moi. Aurais-je pu faire la même chose seul, en si peu de temps ? Probablement pas. Mais c’est tout l’objet de ce projet : apprendre et prendre en main ces outils, en demandant à Claude d’expliquer ses choix au fil du projet.',
 
     'projects.title': 'Projets',
     'projects.description': 'Une sélection de projets web, avec leurs technologies et leur code source.',
@@ -115,7 +115,7 @@ export const ui = {
     'home.about.p2':
       'I am aware of the new challenges of the digital world and of how powerful modern tools have become, and I am training accordingly. This site was coded with the help of Claude Code, Anthropic’s coding assistant, which I steered: the choices, the content, and the review and approval of every step.',
     'home.about.p3':
-      'I built it in one week, during my Claude Code trial period, with Astro, a technology that was new to me. Could I have built the same thing on my own, this quickly? Probably not, and I don’t yet understand all of the code. But that is the whole point of this project: learning and getting to grips with these tools, by asking Claude to explain its choices along the way.',
+      'I built it in one week, during my Claude Code trial period, with Astro, a technology that was new to me. Could I have built the same thing on my own, this quickly? Probably not. But that is the whole point of this project: learning and getting to grips with these tools, by asking Claude to explain its choices along the way.',
 
     'projects.title': 'Projects',
     'projects.description': 'A selection of web projects, with their tech stack and source code.',
