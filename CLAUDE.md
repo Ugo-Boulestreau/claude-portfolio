@@ -11,8 +11,8 @@ ayant passé un an au Japon et en recherche d'emploi. Le site sert de vitrine po
 - **Aucune dépendance** hors `astro`. Demander avant d'en ajouter une.
 - **JavaScript client minimal** : uniquement le bouton de thème.
 - **Polices système** : aucune police externe.
-- **Hébergement : GitHub Pages**, à https://ugo-boulestreau.github.io/claude-portfolio/.
-  `site` et `base: '/claude-portfolio'` sont dans `astro.config.mjs` ; le workflow
+- **Hébergement : GitHub Pages**, à https://ugo-boulestreau.github.io/my-portfolio/.
+  `site` et `base: '/my-portfolio'` sont dans `astro.config.mjs` ; le workflow
   `.github/workflows/deploy.yml` construit et publie le site à chaque push sur `main`.
   Le site vit dans un sous-dossier : toute URL interne doit passer par `pagePath()` / `assetPath()`,
   sinon elle sera cassée en ligne. Pas encore de sitemap (`@astrojs/sitemap` : demander avant d'ajouter).
@@ -110,7 +110,7 @@ Tout est dans `src/data/experience.ts`, textes en `{ fr, en }` côte à côte.
 
 ## Commandes
 
-- `npm run dev` : serveur de développement (http://localhost:4321/claude-portfolio/)
+- `npm run dev` : serveur de développement (http://localhost:4321/my-portfolio/)
 - `npm run build` : génère le site dans `dist/`
 - `npm run preview` : sert le build localement
 

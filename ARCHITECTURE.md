@@ -153,7 +153,7 @@ Trois fichiers gèrent tout, dans [`src/i18n/`](src/i18n/) :
   - `ui` : tous les textes d’interface (menus, boutons, titres), une clé par texte, en français et en anglais.
 - **[`utils.ts`](src/i18n/utils.ts)** fournit les fonctions à utiliser partout :
   - `useTranslations(lang)` renvoie une fonction `t('nav.home')` qui donne le texte dans la bonne langue ;
-  - `pagePath('experience', 'en')` renvoie `/claude-portfolio/en/experience/` : l’URL de la page, précédée
+  - `pagePath('experience', 'en')` renvoie `/my-portofolio/en/experience/` : l’URL de la page, précédée
     du sous-dossier où le site est publié (voir la partie 9). **Aucune URL interne n’est écrite en dur** ;
   - `detailPath(id, lang)` construit l’URL d’une page de détail.
 - **[`projects.ts`](src/i18n/projects.ts)** récupère les projets d’une langue.
@@ -347,7 +347,7 @@ licence CC BY-SA 3.0, et sont créditées dans leur légende.
 
 ## 9. La mise en ligne
 
-Le site est publié sur **GitHub Pages**, à l’adresse https://ugo-boulestreau.github.io/claude-portfolio/.
+Le site est publié sur **GitHub Pages**, à l’adresse https://ugo-boulestreau.github.io/my-portfolio/.
 
 ```mermaid
 flowchart LR
@@ -360,19 +360,19 @@ flowchart LR
 GitHub ce que vous feriez en local : installer les dépendances (`npm ci`), construire le site
 (`npm run build`), puis publier le dossier `dist/`. Son avancement se suit dans l’onglet **Actions** du dépôt.
 
-### Le sous-dossier `/claude-portfolio`
+### Le sous-dossier `/my-portfolio`
 
 GitHub Pages publie le site dans un sous-dossier qui porte le nom du dépôt. Deux réglages de
 [`astro.config.mjs`](astro.config.mjs) le prennent en compte :
 
-- **`base: '/claude-portfolio'`** : Astro l’expose dans `import.meta.env.BASE_URL`, et `pagePath()` comme
+- **`base: '/my-portfolio'`** : Astro l’expose dans `import.meta.env.BASE_URL`, et `pagePath()` comme
   `assetPath()` l’ajoutent devant chaque lien interne. C’est la raison de la règle « aucune URL interne en
   dur » : un `href="/parcours/"` écrit à la main mènerait en ligne à une page introuvable.
 - **`site: 'https://ugo-boulestreau.github.io'`** : il permet de construire les adresses complètes
   utilisées par les moteurs de recherche et les réseaux sociaux (URL canonique, liens `hreflang`, Open Graph).
 
 En local, le serveur de développement applique le même sous-dossier : le site est à
-http://localhost:4321/claude-portfolio/.
+http://localhost:4321/my-portfolio/.
 
 Les liens écrits dans le Markdown des pages de détail sont **relatifs** (`../stage-reliev/`) : ils
 fonctionnent quel que soit le sous-dossier.
