@@ -5,7 +5,7 @@ export default defineConfig({
   // `site` donne les URL complètes (canonique, hreflang, Open Graph) ; `base` est le sous-dossier
   // du dépôt, ajouté devant chaque lien interne par pagePath() et assetPath().
   site: 'https://ugo-boulestreau.github.io',
-  base: '/my-portfolio',
+  base: '/my-portfolio/',
   i18n: {
     locales: ['fr', 'en'],
     defaultLocale: 'fr',
